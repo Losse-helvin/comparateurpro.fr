@@ -8,6 +8,7 @@ Il ne modifie **aucune** landing page : il observe, mesure et documente.
 | Vous êtes… | Lisez |
 |---|---|
 | Décideur / responsable marketing | [`MEMOIRE-ANALYSE.md`](MEMOIRE-ANALYSE.md) — sections 1 et 9 |
+| **Vous voulez savoir quoi améliorer** | **[`PLAN-OPTIMISATION.md`](PLAN-OPTIMISATION.md)** — 24 idées chiffrées, classées par gain/effort |
 | Développeur qui reprend le projet | [`MEMOIRE-ANALYSE.md`](MEMOIRE-ANALYSE.md) — sections 2, 3 et 5 |
 | Responsable de la mise en production | [`REGISTRE-ACTIONS.md`](REGISTRE-ACTIONS.md) |
 | Curieux du détail d'une page précise | [`fiches/<dossier>.md`](fiches/) |
@@ -18,6 +19,7 @@ Il ne modifie **aucune** landing page : il observe, mesure et documente.
 ```
 ANALYSE/
 ├── MEMOIRE-ANALYSE.md      le document de référence (état des lieux + plan d'action)
+├── PLAN-OPTIMISATION.md    24 idées d'amélioration chiffrées, ordonnées par gain/effort
 ├── REGISTRE-ACTIONS.md     les actions décidables, avec critères de réussite
 ├── JOURNAL-TRAVAIL.md      chronologie, faits mesurés, hypothèses, erreurs corrigées
 ├── README.md               ce fichier
