@@ -1,0 +1,260 @@
+[
+  {
+    "site": "acces-internet-et-telephonie-pro",
+    "formId": "ADW_LP_ACCES_INTERNET_ET_TELEPHONIE_PRO",
+    "gtm": "GTM-53SH7D7F",
+    "micro": ""
+  },
+  {
+    "site": "assurance-assurance-professionnelle-iard-cookie",
+    "formId": "ADW_LP_ASSURANCE_ASSURANCE_PROFESSIONNELLE_IARD_COOKIE",
+    "gtm": "GTM-53SH7D7F",
+    "micro": ""
+  },
+  {
+    "site": "assurance-commerce",
+    "formId": "ADW_LP_ASSURANCE_COMMERCE",
+    "gtm": "GTM-WMVZJKS",
+    "micro": "reponse_4"
+  },
+  {
+    "site": "assurance-marchandise",
+    "formId": "ADW_LP_ASSURANCE_MARCHANDISE",
+    "gtm": "GTM-WMVZJKS",
+    "micro": "reponse_4"
+  },
+  {
+    "site": "assurance-multirisques",
+    "formId": "ADW_LP_ASSURANCE_MULTIRISQUES",
+    "gtm": "GTM-53SH7D7F",
+    "micro": "reponse_4"
+  },
+  {
+    "site": "assurance-professionnelle-iard",
+    "formId": "ADW_LP_ASSURANCE_PROFESSIONNELLE_IARD",
+    "gtm": "GTM-53SH7D7F",
+    "micro": ""
+  },
+  {
+    "site": "assurance-professionnelle-tns-v2",
+    "formId": "ADW_LP_ASSURANCE_PROFESSIONNELLE_TNS_V2",
+    "gtm": "GTM-WMVZJKS",
+    "micro": "reponse_3"
+  },
+  {
+    "site": "assurance-protection-sociale-collective",
+    "formId": "ADW_LP_ASSURANCE_PROTECTION_SOCIALE_COLLECTIVE",
+    "gtm": "GTM-53SH7D7F",
+    "micro": ""
+  },
+  {
+    "site": "assurance-rc-pro",
+    "formId": "ADW_LP_ASSURANCE_RC_PRO",
+    "gtm": "GTM-53SH7D7F",
+    "micro": "reponse_4"
+  },
+  {
+    "site": "automobile",
+    "formId": "ADW_LP_AUTOMOBILE",
+    "gtm": "GTM-53SH7D7F",
+    "micro": ""
+  },
+  {
+    "site": "complementaire-retraite-tns-v2",
+    "formId": "ADW_LP_COMPLEMENTAIRE_RETRAITE_TNS_V2",
+    "gtm": "GTM-WMVZJKS",
+    "micro": "reponse_3"
+  },
+  {
+    "site": "energie",
+    "formId": "ADW_LP_ENERGIE",
+    "gtm": "GTM-WMVZJKS",
+    "micro": ""
+  },
+  {
+    "site": "geolocalisation",
+    "formId": "ADW_LP_GEOLOCALISATION",
+    "gtm": "GTM-WMVZJKS",
+    "micro": ""
+  },
+  {
+    "site": "panneaux-photovoltaiques-energie-solaire",
+    "formId": "ADW_LP_PANNEAUX_PHOTOVOLTAIQUES_ENERGIE_SOLAIRE",
+    "gtm": "GTM-WMVZJKS",
+    "micro": ""
+  },
+  {
+    "site": "securite-professionnels",
+    "formId": "ADW_LP_SECURITE_PROFESSIONNELS",
+    "gtm": "GTM-WMVZJKS",
+    "micro": ""
+  },
+  {
+    "site": "tns-prevoyance-v2-adw-test",
+    "formId": "ADW_LP_TNS_PREVOYANCE_V2_ADW_TEST",
+    "gtm": "GTM-WMVZJKS",
+    "micro": "reponse_3"
+  },
+  {
+    "site": "typ-formulaires-form-typ-vehicules",
+    "formId": "ADW_LP_TYP_FORMULAIRES_FORM_TYP_VEHICULES",
+    "gtm": "GTM-53SH7D7F",
+    "micro": ""
+  },
+  {
+    "site": "typ-formulaires-typ-panneaux-form",
+    "formId": "ADW_LP_TYP_FORMULAIRES_TYP_PANNEAUX_FORM",
+    "gtm": "GTM-53SH7D7F",
+    "micro": ""
+  },
+  {
+    "site": "vehicules-de-societe-hd",
+    "formId": "ADW_LP_VEHICULES_DE_SOCIETE_HD",
+    "gtm": "GTM-53SH7D7F",
+    "micro": ""
+  },
+  {
+    "site": "assurance-estheticienne-institut-beaute",
+    "formId": "ADW_LP_ASSURANCE_ESTHETICIENNE_INSTITUT_BEAUTE",
+    "gtm": "GTM-53SH7D7F",
+    "micro": "reponse_3"
+  },
+  {
+    "site": "assurance-estheticiennes-instituts-beaute-v1",
+    "formId": "ADW_LP_ASSURANCE_ESTHETICIENNES_INSTITUTS_BEAUTE_V1",
+    "gtm": "GTM-53SH7D7F",
+    "micro": "reponse_3"
+  },
+  {
+    "site": "assurance-iard-v2",
+    "formId": "ADW_LP_ASSURANCE_IARD_V2",
+    "gtm": "GTM-53SH7D7F",
+    "micro": ""
+  },
+  {
+    "site": "tns-prevoyance-v2",
+    "formId": "ADW_LP_TNS_PREVOYANCE_V2",
+    "gtm": "GTM-WMVZJKS",
+    "micro": "reponse_3"
+  },
+  {
+    "site": "celebrez-le-noel-des-salaries-avec-kadeos",
+    "formId": "ADW_LP_CELEBREZ_LE_NOEL_DES_SALARIES_AVEC_KADEOS",
+    "gtm": "GTM-53SH7D7F",
+    "micro": ""
+  },
+  {
+    "site": "ecomobility",
+    "formId": "ADW_LP_ECOMOBILITY",
+    "gtm": "GTM-53SH7D7F",
+    "micro": ""
+  },
+  {
+    "site": "edenred-ticket-restaurant-juillet-v1",
+    "formId": "ADW_LP_EDENRED_TICKET_RESTAURANT_JUILLET_V1",
+    "gtm": "GTM-53SH7D7F",
+    "micro": ""
+  },
+  {
+    "site": "geolocalisation-de-flotte",
+    "formId": "ADW_LP_GEOLOCALISATION_DE_FLOTTE",
+    "gtm": "GTM-53SH7D7F",
+    "micro": ""
+  },
+  {
+    "site": "nissan-ariya",
+    "formId": "ADW_LP_NISSAN_ARIYA",
+    "gtm": "GTM-53SH7D7F",
+    "micro": ""
+  },
+  {
+    "site": "still-manutention",
+    "formId": "ADW_LP_STILL_MANUTENTION",
+    "gtm": "GTM-53SH7D7F",
+    "micro": ""
+  },
+  {
+    "site": "suivi-de-vehicules",
+    "formId": "ADW_LP_SUIVI_DE_VEHICULES",
+    "gtm": "GTM-53SH7D7F",
+    "micro": ""
+  },
+  {
+    "site": "ticket-restaurant",
+    "formId": "ADW_LP_TICKET_RESTAURANT",
+    "gtm": "GTM-53SH7D7F",
+    "micro": ""
+  },
+  {
+    "site": "ticket-restaurant-",
+    "formId": "ADW_LP_TICKET_RESTAURANT_VARIANTE",
+    "gtm": "GTM-53SH7D7F",
+    "micro": ""
+  },
+  {
+    "site": "ticket-restaurant-septembre",
+    "formId": "ADW_LP_TICKET_RESTAURANT_SEPTEMBRE",
+    "gtm": "GTM-53SH7D7F",
+    "micro": ""
+  },
+  {
+    "site": "ticket-restaurant-septembre-btp",
+    "formId": "ADW_LP_TICKET_RESTAURANT_SEPTEMBRE_BTP",
+    "gtm": "GTM-53SH7D7F",
+    "micro": ""
+  },
+  {
+    "site": "typ-formulaires-typ-caisses-enregistreuse",
+    "formId": "ADW_LP_TYP_FORMULAIRES_TYP_CAISSES_ENREGISTREUSE",
+    "gtm": "GTM-53SH7D7F",
+    "micro": ""
+  },
+  {
+    "site": "typ-formulaires-typ-energie-form",
+    "formId": "ADW_LP_TYP_FORMULAIRES_TYP_ENERGIE_FORM",
+    "gtm": "GTM-53SH7D7F",
+    "micro": ""
+  },
+  {
+    "site": "une-rentree-sous-le-signe-du-pouvoir-d-achat",
+    "formId": "ADW_LP_UNE_RENTREE_SOUS_LE_SIGNE_DU_POUVOIR_D_ACHAT",
+    "gtm": "GTM-53SH7D7F",
+    "micro": ""
+  },
+  {
+    "site": "fiat-pro",
+    "formId": "ADW_LP_FIAT_PRO",
+    "gtm": "GTM-53SH7D7F",
+    "micro": ""
+  },
+  {
+    "site": "mercedes-benz-mercedes-benz-evito",
+    "formId": "ADW_LP_MERCEDES_BENZ_MERCEDES_BENZ_EVITO",
+    "gtm": "GTM-53SH7D7F",
+    "micro": ""
+  },
+  {
+    "site": "mercedes-benz-nouvel-ecitan-fourgon",
+    "formId": "ADW_LP_MERCEDES_BENZ_NOUVEL_ECITAN_FOURGON",
+    "gtm": "GTM-53SH7D7F",
+    "micro": ""
+  },
+  {
+    "site": "mercedes-benz-sprinter",
+    "formId": "ADW_LP_MERCEDES_BENZ_SPRINTER",
+    "gtm": "GTM-53SH7D7F",
+    "micro": ""
+  },
+  {
+    "site": "nissan-juke",
+    "formId": "ADW_LP_NISSAN_JUKE",
+    "gtm": "GTM-53SH7D7F",
+    "micro": ""
+  },
+  {
+    "site": "too-good-to-go",
+    "formId": "ADW_LP_TOO_GOOD_TO_GO",
+    "gtm": "GTM-53SH7D7F",
+    "micro": ""
+  }
+]
