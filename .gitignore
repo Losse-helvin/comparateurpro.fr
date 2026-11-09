@@ -1,0 +1,10 @@
+# Dépendances et caches d'exécution (ne jamais versionner)
+node_modules/
+__pycache__/
+*.pyc
+.pytest_cache/
+.DS_Store
+*.log
+
+# Note : les actifs lourds (videos/, img/) sont volontairement versionnés
+# aujourd'hui. Voir ANALYSE/REGISTRE-ACTIONS.md, étape 4, avant de changer cela.
