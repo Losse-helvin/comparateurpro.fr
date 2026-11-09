@@ -9,6 +9,7 @@ Il ne modifie **aucune** landing page : il observe, mesure et documente.
 |---|---|
 | Décideur / responsable marketing | [`MEMOIRE-ANALYSE.md`](MEMOIRE-ANALYSE.md) — sections 1 et 9 |
 | **Vous voulez savoir quoi améliorer** | **[`PLAN-OPTIMISATION.md`](PLAN-OPTIMISATION.md)** — 24 idées chiffrées, classées par gain/effort |
+| Vous voulez analyser les leads reçus | [`PROCEDURE-ANALYSE-LEADS.md`](PROCEDURE-ANALYSE-LEADS.md) |
 | Développeur qui reprend le projet | [`MEMOIRE-ANALYSE.md`](MEMOIRE-ANALYSE.md) — sections 2, 3 et 5 |
 | Responsable de la mise en production | [`REGISTRE-ACTIONS.md`](REGISTRE-ACTIONS.md) |
 | Curieux du détail d'une page précise | [`fiches/<dossier>.md`](fiches/) |
@@ -20,6 +21,7 @@ Il ne modifie **aucune** landing page : il observe, mesure et documente.
 ANALYSE/
 ├── MEMOIRE-ANALYSE.md      le document de référence (état des lieux + plan d'action)
 ├── PLAN-OPTIMISATION.md    24 idées d'amélioration chiffrées, ordonnées par gain/effort
+├── PROCEDURE-ANALYSE-LEADS.md  comment analyser la feuille de leads (accès à débloquer)
 ├── REGISTRE-ACTIONS.md     les actions décidables, avec critères de réussite
 ├── JOURNAL-TRAVAIL.md      chronologie, faits mesurés, hypothèses, erreurs corrigées
 ├── README.md               ce fichier
@@ -68,6 +70,10 @@ Recalculés à chaque exécution du script n°1 :
 
 > Le chiffre à suivre dans le temps est celui du **statut C**. S'il ne baisse pas, rien n'avance
 > réellement sur le plan commercial.
+>
+> **Mise à jour du 9 novembre 2026** : le métier a confirmé qu'un lead visible dans la feuille
+> Google Sheets est aussi reçu par le CRM. La chaîne de capture est donc **validée en production**.
+> Les risques C4 (CORS SMS) et C5 (CRM muet) deviennent résiduels. Voir `PROCEDURE-ANALYSE-LEADS.md`.
 
 ## Avertissement de méthode
 

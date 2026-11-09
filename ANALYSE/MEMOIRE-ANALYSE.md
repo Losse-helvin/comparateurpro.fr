@@ -186,12 +186,22 @@ il valide, il remercie), mais le handler ne s'y accroche pas. Aucune erreur visi
 9. Écran           « Merci ! » Webflow d'origine affiché
 ```
 
-### 3.2 Les cinq fragilités réelles du parcours
+### 3.2 Les fragilités réelles du parcours
 
-**F1 — Le succès ne prouve pas la réception CRM.** Le mode `nocors` sur **les 87 pages** signifie
-que le navigateur n'a aucun retour du CRM. Le code considère un beacon « accepté » comme un envoi
-réussi. Si Sheets répond `ok` mais que le CRM a rejeté le lead, l'utilisateur voit « Merci ! » et
-le lead est perdu **silencieusement** du côté CRM. Aucune déduplication serveur n'est en place.
+> **✅ VALIDATION EN PRODUCTION (9 novembre 2026)** — Le métier a confirmé qu'un lead qui apparaît
+> dans la feuille Google Sheets **est aussi reçu par le CRM**. La chaîne est donc fonctionnelle de
+> bout en bout en production. Cela **lève l'incertitude principale** de cette analyse (voir F1) et
+> confirme que le CORS de l'API SMS, celui de l'Apps Script et le routage CRM sont opérationnels
+> sur les domaines testés. Les points ci-dessous restent des **fragilités de robustesse**, pas des
+> pannes : ils décrivent ce que le système ne sait pas faire, pas ce qu'il fait mal aujourd'hui.
+
+**F1 — Le succès ne prouve pas la réception CRM. *(Risque résiduel, non bloquant)*** Le mode
+`nocors` sur **les 87 pages** signifie que le navigateur n'a aucun retour du CRM. Le code considère
+un beacon « accepté » comme un envoi réussi. **En pratique, la réception est confirmée** : un lead
+visible dans Sheets arrive bien dans le CRM. La fragilité est donc désormais circonscrite au **cas
+dégradé** : si le CRM tombe alors que Sheets répond `ok`, l'utilisateur voit « Merci ! » et le lead
+est conservé dans la feuille mais absent du CRM — sans alerte. Aucune déduplication serveur n'est
+en place, donc une reprise manuelle depuis la feuille est possible mais doit rester prudente.
 
 **F2 — Le CORS de l'API SMS est une dépendance non maîtrisée.** L'appel part du navigateur du
 visiteur. Une page mal déployée (autre sous-domaine, iframe, port de préprod) = SMS mort = lead
@@ -485,7 +495,7 @@ seront corrigés à la main, page par page, 146 fois — et reviendront à la pr
 | C2 | 2 pages **amputées** : `assurance-agriculteur-v2` (0 formulaire) et `agriculteur` (2 formulaires, 0 marqué) | 2 | restaurer ou retirer |
 | C3 | 2 collisions de `formId` CRM | 4 pages | attribuer un `formId` unique par page |
 | C4 | CORS de l'API SMS non vérifié sur les domaines finaux | 87 pages | test SMS réel sur chaque domaine avant mise en ligne |
-| C5 | Réception CRM non confirmable (`nocors`) sans déduplication serveur | 87 pages | passer en `cors` si l'API le permet, sinon tracer côté serveur |
+| C5 | Réception CRM non confirmable côté navigateur (`nocors`) sans déduplication serveur — **réception réelle validée par le métier**, reste le cas dégradé Sheets-OK/CRM-KO | 87 pages | surveillance : alerter si un lead existe dans Sheets mais pas dans le CRM |
 | C6 | Pont iframe limité à une seule origine parente | wrappers | élargir ou documenter |
 
 ### 🟠 Majeur — dette structurelle

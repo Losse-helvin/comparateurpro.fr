@@ -54,11 +54,41 @@ Tout ce qui suit est vérifiable par une commande documentée dans `ANALYSE/READ
 | « `assurance/` est l'ancienne copie » | **Hypothèse** raisonnée : ses `RAPPORT-INTEGRATION.md` sont plus courts que les `RAPPORT-MODIFICATIONS.md` de la racine, et ces dossiers sont absents de `ordre-sites.txt`. Non confirmée par l'historique Git (un seul commit). |
 | « Les 37 pages du statut C perdent des leads » | **Hypothèse forte mais non prouvée** : le handler ne trouve pas de formulaire marqué, donc `if (!form) return;` s'exécute. Il faudrait vérifier page par page qu'aucun autre mécanisme (ancien gestionnaire dans `script.js`, comme sur `solutions-agv-amr`) n'assure la capture. |
 | « Le CORS SMS est un risque » | **Fait de code** (appel navigateur direct). **Non testé** : je n'ai pas exécuté d'appel réseau réel vers HelloLead — l'API peut autoriser toutes les origines. |
-| « Le CRM ne confirme pas la réception » | **Fait de code** (`nocors`, `sendBeacon`). La conséquence métier (leads perdus) est **une possibilité**, pas une observation. |
+| « Le CRM ne confirme pas la réception » | ~~Risque~~ → **LEVÉ le 9 nov. 2026** : le métier a confirmé qu'un lead présent dans la feuille Google est aussi reçu par le CRM. Le `nocors` reste une limite *technique* (aucun accusé côté navigateur), mais la chaîne fonctionne en production. Le risque résiduel est le cas dégradé : Sheets OK / CRM KO. |
 | Contenu des pages, qualité visuelle | **Non évalué** : je n'ai pas ouvert les pages dans un navigateur. Un audit visuel reste à faire. |
 
+### 3 bis. Validation en production (9 novembre 2026)
+
+Le métier a fourni une feuille Google Sheets de suivi des leads et confirmé la règle suivante :
+
+> **Tout ce qui apparaît dans cette feuille est également reçu par le CRM.**
+
+Ce que cela change dans l'analyse :
+
+| Point | Avant | Après |
+|---|---|---|
+| Chaîne de capture de bout en bout | incertaine | **validée en production** ✅ |
+| CORS de l'API SMS | risque non testé | **fonctionne** sur les domaines en service ✅ |
+| CORS de l'Apps Script Sheets | risque non testé | **fonctionne** ✅ |
+| Routage CRM par `formId` | non prouvé | **opérationnel** ✅ |
+| Risque C5 (CRM muet) | majeur | **résiduel** : seulement le cas Sheets OK / CRM KO |
+| Risque C4 (CORS SMS) | majeur | **résiduel** : seulement lors d'un nouveau domaine |
+
+**Ce que cette validation ne dit pas** (à ne pas surinterpréter) :
+- elle ne dit **pas** que les 37 pages du statut C envoient des leads — elles envoient peut-être
+  par un mécanisme historique, ou pas du tout. Il faut vérifier la **présence des pages** dans la
+  feuille, pas seulement l'existence de la feuille ;
+- elle ne dit **pas** que le taux de conversion est bon, seulement que la plomberie fonctionne ;
+- elle ne dit **pas** qu'un SMS est délivré à tous les opérateurs ni sur tous les domaines
+  nouvellement déployés.
+
+**Question à trancher, désormais la plus importante** : la feuille est-elle **complète** ? Si des
+leads arrivent dans le CRM sans figurer dans la feuille, c'est le signe d'un `formId` non routé
+vers le script Sheets. Comparer le volume des deux sources sur une semaine est le meilleur
+diagnostic possible — et c'est faisable immédiatement, sans modifier une ligne de code.
+
 **Ce que cette analyse ne peut pas dire :**
-- si un lead arrive réellement dans le CRM aujourd'hui ;
+- si un lead arrive réellement dans le CRM aujourd'hui ; *(levé le 9 nov. 2026 — voir ci-dessus)*
 - si un SMS est réellement délivré sur un domaine donné ;
 - si les événements GTM sont réellement reçus dans GA4 / Google Ads ;
 - si les pages sont visuellement conformes à l'intention métier.
