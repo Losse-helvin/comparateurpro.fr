@@ -268,7 +268,7 @@
                   <div data-form="step" class="etape-2 form-blobale actiflip-etape">
                     <div data-go-to="code-postal" data-answer="etape-mail" class="etape-content form-blobale">
                       <div class="titre-assurance-iard centre-titre-actiflip">Merci, nous avons bien identifié vos besoins !<br>Sur quelle adresse mail souhaitez-vous recevoir vos devis ?</div>
-                      <div class="civilite-email"><input class="email w-input" maxlength="256" name="mail" data-name="mail" placeholder="Email" type="email" required=""></div>
+                      <div class="civilite-email"><input class="email w-input" maxlength="256" name="mail" data-name="mail" placeholder="Email" type="email" required="" autocomplete="email"></div>
                       <div class="etape-bouton assurance-iard">
                         <a data-form="back-btn" href="#" class="bouton-precedent rc-pro orange w-button">Précédent</a>
                         <a data-form="next-btn" href="#" class="bouton-suivant rc-pro orange w-button">Suivant</a>
@@ -278,7 +278,7 @@
                   <div data-form="step" class="etape-2 form-blobale actiflip-etape">
                     <div data-go-to="nom-prenom" data-answer="code-postal" class="etape-content form-blobale">
                       <div class="titre-assurance-iard centre-titre-actiflip">Quelle est la société concernée par cette demande ?</div>
-                      <div class="coordonnees-societe"><input class="nom-societe w-input" maxlength="256" name="societe" data-name="societe" placeholder="Nom de la société" type="text" required=""><input class="zipcode iard w-input" maxlength="256" name="code_postal" data-name="code_postal" placeholder="Code postal" type="text" required=""></div>
+                      <div class="coordonnees-societe"><input class="nom-societe w-input" maxlength="256" name="societe" data-name="societe" placeholder="Nom de la société" type="text" required="" autocomplete="organization"><input class="zipcode iard w-input" maxlength="256" name="code_postal" data-name="code_postal" placeholder="Code postal" type="text" required="" autocomplete="postal-code" inputmode="numeric"></div>
                       <div class="etape-bouton assurance-iard">
                         <a data-form="back-btn" href="#" class="bouton-precedent rc-pro orange w-button">Précédent</a>
                         <a data-form="next-btn" href="#" class="bouton-suivant rc-pro orange w-button">Suivant</a>
@@ -288,7 +288,7 @@
                   <div data-form="step" class="etape-2 form-blobale actiflip-etape">
                     <div data-go-to="telephone" data-answer="nom-prenom" class="etape-content form-blobale">
                       <div class="titre-assurance-iard centre-titre-actiflip">A quel nom nos partenaires doivent-ils adresser vos devis ?</div>
-                      <div class="civilite-email-tel"><input class="name iard w-input" maxlength="256" name="nom" data-name="nom" placeholder="Nom" type="text" required=""><input class="name iard w-input" maxlength="256" name="prenom" data-name="prenom" placeholder="Prénom" type="text" required=""></div>
+                      <div class="civilite-email-tel"><input class="name iard w-input" maxlength="256" name="nom" data-name="nom" placeholder="Nom" type="text" required="" autocomplete="family-name"><input class="name iard w-input" maxlength="256" name="prenom" data-name="prenom" placeholder="Prénom" type="text" required="" autocomplete="given-name"></div>
                       <div class="etape-bouton assurance-iard">
                         <a data-form="back-btn" href="#" class="bouton-precedent rc-pro orange w-button">Précédent</a>
                         <a data-form="next-btn" href="#" class="bouton-suivant rc-pro orange w-button">Suivant</a>
@@ -298,7 +298,7 @@
                   <div data-form="step" class="etape-2 form-blobale actiflip-etape">
                     <div data-answer="telephone" class="etape-content form-blobale etape-consentement">
                       <div class="titre-assurance-iard centre-titre-actiflip">Et enfin, votre numéro de téléphone mobile ?</div>
-                      <div class="information-acheteur"><input class="phone iard w-input" maxlength="256" name="telephone" data-name="telephone" placeholder="Téléphone" type="text" required=""></div>
+                      <div class="information-acheteur"><input class="phone iard w-input" maxlength="256" name="telephone" data-name="telephone" placeholder="Téléphone" type="text" required="" autocomplete="tel" inputmode="tel"></div>
                       <div class="titre-consentement">En soumettant ce formulaire, j&#x27;accepte que les informations saisies soient exploitées dans le cadre de la relation commerciale qui peut en découler.</div>
                       <div class="consentement-1"><label class="consentement-2 w-radio"><input type="radio" name="consentement" id="oui" data-name="consentement" required="" data-w-id="02f221d1-79f7-0eaa-419d-199a100fa4e3" class="w-form-formradioinput w-radio-input" value="oui"><span class="radio-button-label-44 w-form-label" for="oui">J&#x27;accepte</span></label><label class="w-radio"><input type="radio" name="consentement" data-name="consentement" data-w-id="02f221d1-79f7-0eaa-419d-199a100fa4e7" class="w-form-formradioinput w-radio-input" value="non"><span class="radio-button-label-45 w-form-label">Je n&#x27;accepte pas</span></label></div>
                       <div class="popup-consentement">

@@ -149,7 +149,7 @@
       <div data-form="step" class="etape-18 form-blobale vehicule-form-2">
         <div data-go-to="code-postal" data-answer="etape-mail" class="etape-content-2 form-blobale form-mobile-security">
           <div class="titre-assurance-iard-18 titre-vehicules-1-5">Merci, nous avons bien identifié vos besoins !<br>Sur quelle adresse mail souhaitez-vous recevoir vos devis ?</div>
-          <div class="civilite-email-8"><input class="email-10 email-secu w-input" maxlength="256" name="mail" data-name="mail" placeholder="Email" type="email" required=""></div>
+          <div class="civilite-email-8"><input class="email-10 email-secu w-input" maxlength="256" name="mail" data-name="mail" placeholder="Email" type="email" required="" autocomplete="email"></div>
           <div class="etape-bouton-15 assurance-iard">
             <a data-form="back-btn" href="#" class="bouton-precedent-2 rc-pro secu-btn-1 w-button">Précédent</a>
             <a data-form="next-btn" href="#" class="bouton-suivant-15 rc-pro secu-btn-1 w-button">Suivant</a>
@@ -161,9 +161,9 @@
           <div class="content-telephone-2">
             <div class="titre-assurance-iard-18 titre-vehicules-1-5">Merci de completer les informations manquantes pour recevoir jusqu&#x27;à 3 devis gratuit :</div>
             <div class="message-erreur"></div>
-            <div class="coordonnees-societe-8"><input class="name-4 iard w-input" maxlength="256" name="nom" data-name="nom" placeholder="Nom" type="text" required=""><input class="name-4 iard w-input" maxlength="256" name="prenom" data-name="prenom" placeholder="Prénom" type="text" required="">
-              <div class="nom-societe-hide"><input class="nom-societe-8 w-input" maxlength="256" name="societe" data-name="societe" placeholder="Nom de la société" type="text"></div><input class="w-input" data-phone-autoformat="xxxxx" maxlength="256" data-min-character="5" name="code_postal" data-name="code_postal" placeholder="Code postal" type="tel" required="">
-              <div class="content-telephone-verification-2"><input class="telephone-verification w-input" data-phone-autoformat="xx xx xx xx xx" maxlength="256" data-min-character="14" name="telephone" data-name="telephone" placeholder="Téléphone" type="tel" required="">
+            <div class="coordonnees-societe-8"><input class="name-4 iard w-input" maxlength="256" name="nom" data-name="nom" placeholder="Nom" type="text" required="" autocomplete="family-name"><input class="name-4 iard w-input" maxlength="256" name="prenom" data-name="prenom" placeholder="Prénom" type="text" required="" autocomplete="given-name">
+              <div class="nom-societe-hide"><input class="nom-societe-8 w-input" maxlength="256" name="societe" data-name="societe" placeholder="Nom de la société" type="text" autocomplete="organization"></div><input class="w-input" data-phone-autoformat="xxxxx" maxlength="256" data-min-character="5" name="code_postal" data-name="code_postal" placeholder="Code postal" type="tel" required="" autocomplete="postal-code" inputmode="numeric">
+              <div class="content-telephone-verification-2"><input class="telephone-verification w-input" data-phone-autoformat="xx xx xx xx xx" maxlength="256" data-min-character="14" name="telephone" data-name="telephone" placeholder="Téléphone" type="tel" required="" autocomplete="tel" inputmode="tel">
                 <div class="w-embed"><button type="button" style="padding : 9px 15px; color : white; background-color :  #dc0f1a; height : 38px; font-size : 14px; font-family : Poppins, sans-serif" class="btn-verification">
                     <span class="loading-text">Vérifier</span>
                     <span class="loading-icon"></span>

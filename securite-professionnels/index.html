@@ -97,7 +97,7 @@
                   <div class="champ-masque w-embed"><input type="hidden" name="question_i" value=""></div>
                   <div class="securite-h1">Merci, nous avons bien identifié vos besoins !</div>
                   <div class="etape-question-2 securite-question">A quelle adresse mail souhaitez-vous recevoir vos devis ?</div>
-                </div><input class="securite-coordonnee-1 w-input" maxlength="256" name="mail" data-name="mail" placeholder="Adresse e-mail" type="email" required="">
+                </div><input class="securite-coordonnee-1 w-input" maxlength="256" name="mail" data-name="mail" placeholder="Adresse e-mail" type="email" required="" autocomplete="email">
                 <div class="etape-bouton-3">
                   <a data-form="back-btn" href="#" class="btn-securite-1 w-button">Précédent</a>
                   <a data-form="next-btn" href="#" class="btn-securite-1 w-button">Suivant</a>
@@ -108,7 +108,7 @@
                   <div class="champ-masque w-embed"><input type="hidden" name="question_i" value=""></div>
                   <div class="securite-h1">Quelle est la société concernée par cette demande ?</div>
                 </div>
-                <div class="coordonnees-societe"><input class="nom-societe w-input" maxlength="256" name="societe" data-name="societe" placeholder="Nom de la société" type="text" required=""><input class="zipcode w-input" data-phone-autoformat="xxxxx" maxlength="256" data-min-character="5" name="code_postal" data-name="code_postal" placeholder="Code postal" type="tel" required=""></div>
+                <div class="coordonnees-societe"><input class="nom-societe w-input" maxlength="256" name="societe" data-name="societe" placeholder="Nom de la société" type="text" required="" autocomplete="organization"><input class="zipcode w-input" data-phone-autoformat="xxxxx" maxlength="256" data-min-character="5" name="code_postal" data-name="code_postal" placeholder="Code postal" type="tel" required="" autocomplete="postal-code" inputmode="numeric"></div>
                 <div class="etape-bouton-3">
                   <a data-form="back-btn" href="#" class="btn-securite-1 w-button">Précédent</a>
                   <a data-form="next-btn" href="#" class="btn-securite-1 w-button">Suivant</a>
@@ -120,7 +120,7 @@
                   <div class="securite-h1">A quel nom nos partenaires doivent-ils adresser vos devis ?</div>
                   <div class="securite-h1">C&#x27;est bientôt fini !</div>
                 </div>
-                <div class="information-acheteur-2"><input class="name w-input" maxlength="256" name="prenom" data-name="prenom" placeholder="Prénom" type="text" required=""><input class="name w-input" maxlength="256" name="nom" data-name="nom" placeholder="Nom" type="text" required=""></div>
+                <div class="information-acheteur-2"><input class="name w-input" maxlength="256" name="prenom" data-name="prenom" placeholder="Prénom" type="text" required="" autocomplete="given-name"><input class="name w-input" maxlength="256" name="nom" data-name="nom" placeholder="Nom" type="text" required="" autocomplete="family-name"></div>
                 <div class="etape-bouton-3">
                   <a data-form="back-btn" href="#" class="btn-securite-1 w-button">Précédent</a>
                   <a data-form="next-btn" href="#" class="btn-securite-1 w-button">Suivant</a>
@@ -132,7 +132,7 @@
                   <div class="securite-h1">Et enfin, votre numéro de téléphone ?</div>
                   <div class="securite-h1">N&#x27;oubliez pas de valider ce formulaire pour profitez de l&#x27;offre !</div>
                 </div>
-                <div class="information-acheteur-2"><input class="phone w-input" data-phone-autoformat="xx xx xx xx xx" maxlength="256" data-min-character="14" name="telephone" data-name="telephone" placeholder="Téléphone" type="tel" required=""></div>
+                <div class="information-acheteur-2"><input class="phone w-input" data-phone-autoformat="xx xx xx xx xx" maxlength="256" data-min-character="14" name="telephone" data-name="telephone" placeholder="Téléphone" type="tel" required="" autocomplete="tel" inputmode="tel"></div>
                 <div class="etape-bouton-3">
                   <a data-form="back-btn" href="#" class="btn-securite-1 w-button">Précédent</a><input type="submit" data-wait="Patienter..." data-form="submit-btn" class="btn-securite-1 w-button" value="Valider">
                 </div>

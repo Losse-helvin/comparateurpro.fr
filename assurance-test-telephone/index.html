@@ -84,7 +84,7 @@
             <div data-form="step" class="etape-2 form-blobale">
               <div data-go-to="step-6" data-answer="step-5" class="etape-content form-blobale">
                 <div class="titre-assurance-iard">Merci, nous avons bien identifié vos besoins !<br>Sur quelle adresse mail souhaitez-vous recevoir vos devis ?</div>
-                <div class="civilite-email"><input class="email w-input" maxlength="256" name="mail" data-name="mail" placeholder="Email" type="email" required=""></div>
+                <div class="civilite-email"><input class="email w-input" maxlength="256" name="mail" data-name="mail" placeholder="Email" type="email" required="" autocomplete="email"></div>
               </div>
               <div class="etape-bouton assurance-iard">
                 <a data-form="back-btn" href="#" class="bouton-precedent assurance-iard w-button">Précédent</a>
@@ -94,7 +94,7 @@
             <div data-form="step" class="etape-2 form-blobale">
               <div data-go-to="step-7" data-answer="step-6" class="etape-content form-blobale">
                 <div class="titre-assurance-iard">Quelle est la société concernée par cette demande ?</div>
-                <div class="coordonnees-societe"><input class="nom-societe w-input" maxlength="256" name="societe" data-name="societe" placeholder="Nom de la société" type="text" required=""><input class="zipcode iard w-input" maxlength="256" name="code_postal" data-name="code_postal" placeholder="Code postal" type="text" required=""></div>
+                <div class="coordonnees-societe"><input class="nom-societe w-input" maxlength="256" name="societe" data-name="societe" placeholder="Nom de la société" type="text" required="" autocomplete="organization"><input class="zipcode iard w-input" maxlength="256" name="code_postal" data-name="code_postal" placeholder="Code postal" type="text" required="" autocomplete="postal-code" inputmode="numeric"></div>
                 <div class="etape-bouton assurance-iard">
                   <a data-form="back-btn" href="#" class="bouton-precedent assurance-iard w-button">Précédent</a>
                   <a data-form="next-btn" href="#" class="bouton-suivant assurance-iard w-button">Suivant</a>
@@ -113,7 +113,7 @@
             <div data-form="step" class="etape-2 form-blobale">
               <div data-go-to="step-9" data-answer="step-8" class="etape-content form-blobale">
                 <div class="titre-assurance-iard">A quel nom nos partenaires doivent-ils adresser vos devis ?</div>
-                <div class="civilite-email-tel"><input class="name iard w-input" maxlength="256" name="nom" data-name="nom" placeholder="Nom" type="text" required=""><input class="name iard w-input" maxlength="256" name="prenom" data-name="prenom" placeholder="Prénom" type="text" required=""></div>
+                <div class="civilite-email-tel"><input class="name iard w-input" maxlength="256" name="nom" data-name="nom" placeholder="Nom" type="text" required="" autocomplete="family-name"><input class="name iard w-input" maxlength="256" name="prenom" data-name="prenom" placeholder="Prénom" type="text" required="" autocomplete="given-name"></div>
                 <div class="etape-bouton assurance-iard">
                   <a data-form="back-btn" href="#" class="bouton-precedent assurance-iard w-button">Précédent</a>
                   <a data-form="next-btn" href="#" class="bouton-suivant assurance-iard w-button">Suivant</a>
@@ -125,7 +125,7 @@
                 <div class="content-telephone">
                   <div class="titre-assurance-iard text-verification-valide">Et enfin, votre numéro de téléphone ?</div>
                   <div class="information-acheteur">
-                    <div class="content-telephone-verification"><input class="telephone-verification w-input" data-phone-autoformat="xx xx xx xx xx" maxlength="256" data-min-character="14" name="telephone" data-name="telephone" placeholder="Téléphone" type="tel" required="">
+                    <div class="content-telephone-verification"><input class="telephone-verification w-input" data-phone-autoformat="xx xx xx xx xx" maxlength="256" data-min-character="14" name="telephone" data-name="telephone" placeholder="Téléphone" type="tel" required="" autocomplete="tel" inputmode="tel">
                       <div class="w-embed"><button type="button" style="padding : 9px 15px; color : white;background-color : #f7d827;" class="btn-verification">
                           <span class="loading-text">Vérifier</span>
                           <span class="loading-icon"></span>

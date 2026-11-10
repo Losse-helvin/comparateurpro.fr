@@ -79,14 +79,14 @@
           </div>
           <div data-form="step" class="edenred-form">
             <div class="text-block-207">Merci, nous avons bien identifié vos besoins !</div>
-            <div class="text-block-208">Sur quelle adresse mail souhaitez-vous recevoir vos devis gratuits ?</div><input class="text-field-29 w-input" maxlength="256" name="mail" data-name="mail" placeholder="Email" type="email" required="">
+            <div class="text-block-208">Sur quelle adresse mail souhaitez-vous recevoir vos devis gratuits ?</div><input class="text-field-29 w-input" maxlength="256" name="mail" data-name="mail" placeholder="Email" type="email" required="" autocomplete="email">
             <div class="btn-edenred-ticket">
               <a data-form="back-btn" href="#" class="btn-precedent-edenred w-button">Précédent</a>
               <a data-form="next-btn" href="#" class="btn-suivant-edenred w-button">Suivant</a>
             </div>
           </div>
           <div data-form="step" class="edenred-form">
-            <div class="text-block-207">Quelle est la société concernée par cette demande ?</div><input class="w-input" maxlength="256" name="societe" data-name="societe" placeholder="Nom de la société" type="text" required=""><input class="zipcode w-input" maxlength="256" name="code_postal" data-name="code_postal" placeholder="Code postal" type="text" required="">
+            <div class="text-block-207">Quelle est la société concernée par cette demande ?</div><input class="w-input" maxlength="256" name="societe" data-name="societe" placeholder="Nom de la société" type="text" required="" autocomplete="organization"><input class="zipcode w-input" maxlength="256" name="code_postal" data-name="code_postal" placeholder="Code postal" type="text" required="" autocomplete="postal-code" inputmode="numeric">
             <div class="btn-edenred-ticket">
               <a data-form="back-btn" href="#" class="btn-precedent-edenred w-button">Précédent</a>
               <a data-form="next-btn" href="#" class="btn-suivant-edenred w-button">Suivant</a>
@@ -94,7 +94,7 @@
           </div>
           <div data-form="step" class="edenred-form">
             <div class="text-block-207">A quel nom nos partenaires doivent-ils adresser vos devis ?</div>
-            <div class="text-block-208">C&#x27;est bientôt fini !</div><input class="name w-input" maxlength="256" name="prenom" data-name="prenom" placeholder="Prénom" type="text" required=""><input class="name w-input" maxlength="256" name="nom" data-name="nom" placeholder="Nom" type="text" required="">
+            <div class="text-block-208">C&#x27;est bientôt fini !</div><input class="name w-input" maxlength="256" name="prenom" data-name="prenom" placeholder="Prénom" type="text" required="" autocomplete="given-name"><input class="name w-input" maxlength="256" name="nom" data-name="nom" placeholder="Nom" type="text" required="" autocomplete="family-name">
             <div class="btn-edenred-ticket">
               <a data-form="back-btn" href="#" class="btn-precedent-edenred w-button">Précédent</a>
               <a data-form="next-btn" href="#" class="btn-suivant-edenred w-button">Suivant</a>
@@ -102,7 +102,7 @@
           </div>
           <div data-form="step" class="edenred-form">
             <div class="text-block-207">Et enfin, votre numéro de téléphone ?</div>
-            <div class="text-block-208">N&#x27;oubliez de valider le formulaire pour en profitez. C&#x27;est sans engagement !</div><input class="phone w-input" maxlength="256" name="telephone" data-name="telephone" placeholder="Téléphone" type="text" required="">
+            <div class="text-block-208">N&#x27;oubliez de valider le formulaire pour en profitez. C&#x27;est sans engagement !</div><input class="phone w-input" maxlength="256" name="telephone" data-name="telephone" placeholder="Téléphone" type="text" required="" autocomplete="tel" inputmode="tel">
             <div class="btn-edenred-ticket">
               <a data-form="back-btn" href="#" class="btn-precedent-edenred w-button">Précédent</a><input type="submit" data-wait="Patienter..." data-form="submit-btn" class="submit-button-11 w-button" value="Valider">
             </div>

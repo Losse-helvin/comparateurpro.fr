@@ -113,7 +113,7 @@
           <div class="etape-question">Nous avons bien identifié vos besoins</div>
           <div class="etape-question texte-sous-question-caisse">A qui devons-nous adresser les devis ?</div>
         </div>
-        <div class="information-acheteur"><input class="name-12 w-input" maxlength="256" name="prenom" data-name="prenom" placeholder="Prénom" type="text" required=""><input class="name-12 w-input" maxlength="256" name="nom" data-name="nom" placeholder="Nom" type="text" required=""></div>
+        <div class="information-acheteur"><input class="name-12 w-input" maxlength="256" name="prenom" data-name="prenom" placeholder="Prénom" type="text" required="" autocomplete="given-name"><input class="name-12 w-input" maxlength="256" name="nom" data-name="nom" placeholder="Nom" type="text" required="" autocomplete="family-name"></div>
         <div class="etape-bouton-12">
           <a data-form="back-btn" href="#" class="bouton-precedent w-button">Précédent</a>
           <a data-form="next-btn" href="#" class="bouton-suivant w-button">Suivant</a>
@@ -123,7 +123,7 @@
         <div class="question-contenu">
           <div class="champ-masque w-embed"><input type="hidden" name="question_i" value=""></div>
           <div class="etape-question">Comment pouvons-nous vous joindre ?</div>
-        </div><input class="email-12 w-input" maxlength="256" name="mail" data-name="mail" placeholder="Adresse e-mail" type="email" required=""><input class="phone-5 caisse-enregistreuse w-input" data-phone-autoformat="xx xx xx xx xx" maxlength="256" data-min-character="14" name="telephone" data-name="telephone" placeholder="Téléphone" type="tel" required="">
+        </div><input class="email-12 w-input" maxlength="256" name="mail" data-name="mail" placeholder="Adresse e-mail" type="email" required="" autocomplete="email"><input class="phone-5 caisse-enregistreuse w-input" data-phone-autoformat="xx xx xx xx xx" maxlength="256" data-min-character="14" name="telephone" data-name="telephone" placeholder="Téléphone" type="tel" required="" autocomplete="tel" inputmode="tel">
         <div class="etape-bouton-12">
           <a data-form="back-btn" href="#" class="bouton-precedent w-button">Précédent</a>
           <a data-form="next-btn" href="#" class="bouton-suivant w-button">Suivant</a>
@@ -135,7 +135,7 @@
           <div class="etape-question">Quelle est la société concernée par cette demande ?</div>
           <div class="etape-question texte-sous-question-caisse">Promis, après c&#x27;est fini !</div>
         </div>
-        <div class="coordonnees-societe"><input class="nom-societe w-input" maxlength="256" name="societe" data-name="societe" placeholder="Nom de la société" type="text" required=""><input class="zipcode caisse-enregistreuse w-input" data-phone-autoformat="xxxxx" maxlength="256" data-min-character="5" name="code_postal" data-name="code_postal" placeholder="Code postal" type="tel" required=""></div>
+        <div class="coordonnees-societe"><input class="nom-societe w-input" maxlength="256" name="societe" data-name="societe" placeholder="Nom de la société" type="text" required="" autocomplete="organization"><input class="zipcode caisse-enregistreuse w-input" data-phone-autoformat="xxxxx" maxlength="256" data-min-character="5" name="code_postal" data-name="code_postal" placeholder="Code postal" type="tel" required="" autocomplete="postal-code" inputmode="numeric"></div>
         <div class="consentement-component">
           <div class="titre-consentement-13">En soumettant ce formulaire, j&#x27;accepte que les informations saisies soient exploitées dans le cadre de la relation commerciale qui peut en découler.</div>
           <div class="popup-consentement">

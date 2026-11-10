@@ -56,7 +56,7 @@
                   <div data-form="step" class="etape-formulaire _1">
                     <div class="question-contenu">
                       <div class="champ-masque w-embed"><input type="hidden" name="question_i" value=""></div>
-                    </div><input class="email juke w-input" maxlength="256" name="mail" data-name="mail" placeholder="Email" type="email" required="">
+                    </div><input class="email juke w-input" maxlength="256" name="mail" data-name="mail" placeholder="Email" type="email" required="" autocomplete="email">
                     <div class="etape-bouton juke">
                       <a data-form="next-btn" href="#" class="bouton-suivant btn-nissan w-button">Suivant &gt;</a>
                     </div>
@@ -69,7 +69,7 @@
                         <option value="Mme">Mme</option>
                       </select>
                     </div>
-                    <div class="civilite-email"><input class="name juke w-input" maxlength="256" name="prenom" data-name="prenom" placeholder="Prénom" type="text" required=""><input class="name juke w-input" maxlength="256" name="nom" data-name="nom" placeholder="Nom" type="text" required=""></div>
+                    <div class="civilite-email"><input class="name juke w-input" maxlength="256" name="prenom" data-name="prenom" placeholder="Prénom" type="text" required="" autocomplete="given-name"><input class="name juke w-input" maxlength="256" name="nom" data-name="nom" placeholder="Nom" type="text" required="" autocomplete="family-name"></div>
                     <div class="etape-bouton juke juke2">
                       <a data-form="back-btn" href="#" class="bouton-precedent juke w-button">Retour</a>
                       <a data-form="next-btn" href="#" class="bouton-suivant juke w-button">Suivant &gt;</a>
@@ -79,8 +79,8 @@
                     <div class="question-contenu">
                       <div class="champ-masque w-embed"><input type="hidden" name="question_i" value=""></div>
                     </div>
-                    <div class="information-acheteur"><input class="phone juke w-input" maxlength="256" name="telephone" data-name="telephone" placeholder="Téléphone" type="text" required=""></div>
-                    <div class="coordonnees-societe"><input class="zipcode juke w-input" maxlength="256" name="code_postal" data-name="code_postal" placeholder="Code postal" type="text" required=""><input class="ville juke w-input" maxlength="256" name="ville" data-name="ville" placeholder="Ville" type="text" required=""></div>
+                    <div class="information-acheteur"><input class="phone juke w-input" maxlength="256" name="telephone" data-name="telephone" placeholder="Téléphone" type="text" required="" autocomplete="tel" inputmode="tel"></div>
+                    <div class="coordonnees-societe"><input class="zipcode juke w-input" maxlength="256" name="code_postal" data-name="code_postal" placeholder="Code postal" type="text" required="" autocomplete="postal-code" inputmode="numeric"><input class="ville juke w-input" maxlength="256" name="ville" data-name="ville" placeholder="Ville" type="text" required=""></div>
                     <div class="etape-bouton juke"><input type="submit" data-wait="Patienter..." class="bouton-valider juke w-button" value="OBTENIR UNE OFFRE &gt;">
                       <a data-form="back-btn" href="#" class="bouton-precedent juke w-button">Retour</a>
                     </div>

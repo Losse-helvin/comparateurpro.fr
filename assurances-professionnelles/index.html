@@ -144,7 +144,7 @@
                     <div class="question-contenu">
                       <div class="etape-question">C&#x27;est noté! <br>Quelle est l&#x27;entreprise concernée par votre demande ?<br></div>
                     </div>
-                    <div class="coordonnees-societe"><input class="nom-societe w-input" maxlength="256" name="societe" data-name="societe" placeholder="Nom de la société" type="text" required=""><input class="zipcode w-input" maxlength="256" name="code_postal" data-name="code_postal" placeholder="Code postal" type="text" required=""></div>
+                    <div class="coordonnees-societe"><input class="nom-societe w-input" maxlength="256" name="societe" data-name="societe" placeholder="Nom de la société" type="text" required="" autocomplete="organization"><input class="zipcode w-input" maxlength="256" name="code_postal" data-name="code_postal" placeholder="Code postal" type="text" required="" autocomplete="postal-code" inputmode="numeric"></div>
                     <div class="etape-bouton">
                       <a data-form="back-btn" href="#" class="bouton-precedent feane-1 w-button">Précédent</a>
                       <a data-form="next-btn" href="#" class="bouton-suivant btn-assurance w-button">Suivant</a>
@@ -154,7 +154,7 @@
                     <div class="question-contenu">
                       <div class="etape-question">A qui les devis doivent-ils être adressés ?<br><br></div>
                     </div>
-                    <div class="civilite-email-tel"><input class="name w-input" maxlength="256" name="nom" data-name="nom" placeholder="Nom" type="text" required=""><input class="name w-input" maxlength="256" name="prenom" data-name="prenom" placeholder="Prénom" type="text" required=""><input class="email w-input" maxlength="256" name="mail" data-name="mail" placeholder="Email" type="text" required=""><input class="phone w-input" maxlength="256" name="telephone" data-name="telephone" placeholder="Phone" type="text" required=""></div>
+                    <div class="civilite-email-tel"><input class="name w-input" maxlength="256" name="nom" data-name="nom" placeholder="Nom" type="text" required="" autocomplete="family-name"><input class="name w-input" maxlength="256" name="prenom" data-name="prenom" placeholder="Prénom" type="text" required="" autocomplete="given-name"><input class="email w-input" maxlength="256" name="mail" data-name="mail" placeholder="Email" type="text" required="" autocomplete="email"><input class="phone w-input" maxlength="256" name="telephone" data-name="telephone" placeholder="Phone" type="text" required="" autocomplete="tel" inputmode="tel"></div>
                     <div class="etape-bouton">
                       <a data-form="back-btn" href="#" class="bouton-precedent feane-1 w-button">Précédent</a><input type="submit" data-wait="Patienter..." class="bouton-valider w-button" value="Valider">
                     </div>

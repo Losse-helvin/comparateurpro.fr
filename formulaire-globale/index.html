@@ -183,7 +183,7 @@
                   <div class="champ-masque w-embed"><input type="hidden" name="question_i" value=""></div>
                   <div class="etape-question">Société + code postal</div>
                 </div>
-                <div class="coordonnees-societe"><input class="nom-societe w-input" maxlength="256" name="societe" data-name="societe" placeholder="Nom de la société" type="text" required=""><input class="zipcode w-input" maxlength="256" name="code_postal" data-name="code_postal" placeholder="Code postal" type="text" required=""></div>
+                <div class="coordonnees-societe"><input class="nom-societe w-input" maxlength="256" name="societe" data-name="societe" placeholder="Nom de la société" type="text" required="" autocomplete="organization"><input class="zipcode w-input" maxlength="256" name="code_postal" data-name="code_postal" placeholder="Code postal" type="text" required="" autocomplete="postal-code" inputmode="numeric"></div>
                 <div class="etape-bouton">
                   <a data-form="back-btn" href="#" class="bouton-precedent w-button">Précédent</a>
                   <a data-form="next-btn" href="#" class="bouton-suivant w-button">Suivant</a>
@@ -194,7 +194,7 @@
                   <div class="champ-masque w-embed"><input type="hidden" name="question_i" value=""></div>
                   <div class="etape-question">Coordonées</div>
                 </div>
-                <div class="information-acheteur"><input class="name w-input" maxlength="256" name="prenom" data-name="prenom" placeholder="Prénom" type="text" required=""><input class="name w-input" maxlength="256" name="nom" data-name="nom" placeholder="Nom" type="text" required=""><input class="phone w-input" maxlength="256" name="telephone" data-name="telephone" placeholder="Téléphone" type="text" required=""></div>
+                <div class="information-acheteur"><input class="name w-input" maxlength="256" name="prenom" data-name="prenom" placeholder="Prénom" type="text" required="" autocomplete="given-name"><input class="name w-input" maxlength="256" name="nom" data-name="nom" placeholder="Nom" type="text" required="" autocomplete="family-name"><input class="phone w-input" maxlength="256" name="telephone" data-name="telephone" placeholder="Téléphone" type="text" required="" autocomplete="tel" inputmode="tel"></div>
                 <div class="etape-bouton">
                   <a data-form="back-btn" href="#" class="bouton-precedent w-button">Précédent</a>
                   <a data-form="next-btn" href="#" class="bouton-suivant w-button">Suivant</a>
@@ -204,7 +204,7 @@
                 <div class="question-contenu">
                   <div class="champ-masque w-embed"><input type="hidden" name="question_i" value=""></div>
                   <div class="etape-question">Email</div>
-                </div><input class="email w-input" maxlength="256" name="mail" data-name="mail" placeholder="Adresse e-mail" type="email" required="">
+                </div><input class="email w-input" maxlength="256" name="mail" data-name="mail" placeholder="Adresse e-mail" type="email" required="" autocomplete="email">
                 <div class="etape-bouton">
                   <a data-form="back-btn" href="#" class="bouton-precedent w-button">Précédent</a><input type="submit" data-wait="Patienter..." class="bouton-valider w-button" value="Valider">
                 </div>
