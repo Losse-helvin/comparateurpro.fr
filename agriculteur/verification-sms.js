@@ -135,7 +135,7 @@
     box.className = 'sms-verification';
     box.innerHTML =
       '<button type="button" class="sms-send">Recevoir le code</button>' +
-      '<p class="sms-help">Code à 6 chiffres, valable 10 minutes et à usage unique. Un nouveau code remplace le précédent.</p>' +
+      '<p class="sms-help">Pour sécuriser votre demande, saisissez un numéro mobile français (06 ou 07), puis vérifiez le code reçu par SMS. Code à 6 chiffres valable 10 minutes. Un nouveau code remplace le précédent.</p>' +
       '<div class="sms-code-wrap" hidden>' +
         '<input type="text" class="sms-code" inputmode="numeric" pattern="[0-9]{6}" maxlength="6" autocomplete="one-time-code" placeholder="Code à 6 chiffres" aria-label="Code de vérification SMS"> ' +
         '<button type="button" class="sms-check">Vérifier</button>' +

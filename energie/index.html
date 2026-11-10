@@ -183,7 +183,7 @@
               <div data-form="step" class="etape-2">
                 <div data-go-to="coord" data-answer="email" class="etape-content form-blobale etape-consentement">
                   <div class="titre-assurance-iard-11">Merci, nous avons bien identifiés vos besoins. Validez ce formulaire pour obtenir vos devis, c&#x27;est sans engagement !<br><br>Sur quelle adresse professionnelle souhaitez-vous recevoir vos devis gratuits ?</div>
-                  <div class="information-acheteur"><input class="email w-input" maxlength="256" name="mail" data-name="mail" placeholder="Email" type="email" id="mail" required=""></div>
+                  <div class="information-acheteur"><input class="email w-input" maxlength="256" name="mail" data-name="mail" placeholder="Email" type="email" id="mail" required="" autocomplete="email"></div>
                   <div class="etape-bouton assurance-iard">
                     <a data-form="back-btn" href="#" class="bouton-precedent rc-pro w-button">Précédent</a>
                     <a data-form="next-btn" href="#" class="bouton-suivant rc-pro w-button">Suivant</a>
@@ -193,10 +193,10 @@
               <div data-form="step" class="etape-2">
                 <div data-answer="coord" class="etape-content form-blobale etape-consentement">
                   <div class="titre-assurance-iard-11">À qui les fournisseurs devront-ils adresser leur devis ?</div>
-                  <div class="information-acheteur"><input class="societe w-input" maxlength="256" name="societe" data-name="societe" placeholder="Nom de la société" type="text" required=""><input class="zipcode w-input" maxlength="256" name="code_postal" data-name="code_postal" placeholder="Code postal" type="text" required=""><input class="name w-input" maxlength="256" name="nom" data-name="nom" placeholder="Nom" type="text" required=""><input class="name w-input" maxlength="256" name="prenom" data-name="prenom" placeholder="Prénom" type="text" required=""><input class="phone w-input" maxlength="256" name="telephone" data-name="telephone" placeholder="Téléphone" type="text" required=""></div>
+                  <div class="information-acheteur"><input class="societe w-input" maxlength="256" name="societe" data-name="societe" placeholder="Nom de la société" type="text" required="" autocomplete="organization"><input class="zipcode w-input" maxlength="256" name="code_postal" data-name="code_postal" placeholder="Code postal" type="text" required="" autocomplete="postal-code" inputmode="numeric"><input class="name w-input" maxlength="256" name="nom" data-name="nom" placeholder="Nom" type="text" required="" autocomplete="family-name"><input class="name w-input" maxlength="256" name="prenom" data-name="prenom" placeholder="Prénom" type="text" required="" autocomplete="given-name"><input class="phone w-input" maxlength="256" name="telephone" data-name="telephone" placeholder="Téléphone" type="text" required="" autocomplete="tel" inputmode="tel"></div>
                   <div class="titre-consentement assurance-energie-1 titre-valider">En soumettant ce formulaire, vous acceptez que les informations saisies soient exploitées dans le cadre de la relation commerciale qui peut en découler.</div>
                   <div class="etape-bouton assurance-iard">
-                    <a data-form="back-btn" href="#" class="bouton-precedent rc-pro w-button">Précédent</a><input type="submit" data-wait="Patienter..." data-form="submit-btn" class="btn-1-sector w-button" value="Valider">
+                    <a data-form="back-btn" href="#" class="bouton-precedent rc-pro w-button">Précédent</a><input type="submit" data-wait="Patienter..." data-form="submit-btn" class="btn-1-sector w-button" value="Recevoir mes devis">
                   </div>
                 </div>
               </div>

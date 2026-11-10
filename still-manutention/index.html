@@ -79,7 +79,7 @@
           <div data-form="step" class="etape-formulaire _2">
             <div class="question-contenu">
               <div class="etape-question still">Merci, nous avons bien identifié vos besoins !<br><span class="text-span-115">Sur quelle adresse mail souhaitez-vous recevoir vos devis ?</span></div>
-            </div><input class="email w-input" maxlength="256" name="mail" data-name="mail" placeholder="Adresse e-mail" type="email" required="">
+            </div><input class="email w-input" maxlength="256" name="mail" data-name="mail" placeholder="Adresse e-mail" type="email" required="" autocomplete="email">
             <div class="etape-bouton">
               <a data-form="back-btn" href="#" class="bouton-precedent still w-button">Précédent</a>
               <a data-form="next-btn" href="#" class="bouton-suivant still w-button">Suivant</a>
@@ -88,7 +88,7 @@
           <div data-form="step" class="etape-formulaire _2">
             <div class="question-contenu">
               <div class="etape-question still">Quelle est la société concernée par cette demande ?</div>
-              <div class="coordonnees-societe"><input class="nom-societe w-input" maxlength="256" name="societe" data-name="societe" placeholder="Nom de la société" type="text" required=""><input class="zipcode w-input" maxlength="256" name="code_postal" data-name="code_postal" placeholder="Code postal" type="text" required=""></div>
+              <div class="coordonnees-societe"><input class="nom-societe w-input" maxlength="256" name="societe" data-name="societe" placeholder="Nom de la société" type="text" required="" autocomplete="organization"><input class="zipcode w-input" maxlength="256" name="code_postal" data-name="code_postal" placeholder="Code postal" type="text" required="" autocomplete="postal-code" inputmode="numeric"></div>
             </div>
             <div class="etape-bouton">
               <a data-form="back-btn" href="#" class="bouton-precedent still w-button">Précédent</a>
@@ -98,7 +98,7 @@
           <div data-form="step" class="etape-formulaire _2">
             <div class="question-contenu">
               <div class="etape-question still">A quel nom nos partenaires doivent-ils adresser vos devis ?<br><span class="text-span-116">C&#x27;est bientôt fini</span></div>
-              <div class="civilite-email"><input class="name w-input" maxlength="256" name="prenom" data-name="prenom" placeholder="Prénom" type="text" required=""><input class="name w-input" maxlength="256" name="nom" data-name="nom" placeholder="Nom" type="text" required=""></div>
+              <div class="civilite-email"><input class="name w-input" maxlength="256" name="prenom" data-name="prenom" placeholder="Prénom" type="text" required="" autocomplete="given-name"><input class="name w-input" maxlength="256" name="nom" data-name="nom" placeholder="Nom" type="text" required="" autocomplete="family-name"></div>
             </div>
             <div class="etape-bouton">
               <a data-form="back-btn" href="#" class="bouton-precedent still w-button">Précédent</a>
@@ -108,7 +108,7 @@
           <div data-form="step" class="etape-formulaire _2">
             <div class="question-contenu">
               <div class="etape-question still">Dernière question : à quel numéro nos partenaires peuvent-ils vous contacter ?<br>‍<span class="text-span-117">N&#x27;oubliez pas de valider le formulaire pour profitez de l&#x27;offre !</span></div>
-              <div class="information-acheteur"><input class="phone w-input" maxlength="256" name="telephone" data-name="telephone" placeholder="Téléphone" type="text" required=""></div>
+              <div class="information-acheteur"><input class="phone w-input" maxlength="256" name="telephone" data-name="telephone" placeholder="Téléphone" type="text" required="" autocomplete="tel" inputmode="tel"></div>
             </div>
             <div class="etape-bouton">
               <a data-form="back-btn" href="#" class="bouton-precedent still w-button">Précédent</a><input type="submit" data-wait="Patienter..." class="bouton-valider still w-button" value="Valider">

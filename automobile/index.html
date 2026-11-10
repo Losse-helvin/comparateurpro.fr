@@ -85,7 +85,7 @@
                   <div class="text-block-321">Quel(s) type(s) de voiture de société souhaitez-vous explorer ?</div>
                   <div class="questionpv-3"><label class="radiopv-2 w-radio"><input class="w-form-formradioinput w-radio-input" name="reponse_1" data-name="reponse_1" data-radio-delay="25" data-radio-skip="true" type="radio" id="Berline-Compacte-ou-Coup-e" required="" value="Berline Compacte ou Coupée"><span class="radio-button-label-161 w-form-label" for="Berline-Compacte-ou-Coup-e">Berline Compacte ou Coupée</span></label><label class="radiopv-2 w-radio"><input type="radio" name="reponse_1" id="Berline-Classique" data-name="reponse_1" required="" class="w-form-formradioinput w-radio-input" value="Berline Classique"><span class="radio-button-label-166 w-form-label" for="Berline-Classique">Berline Classique</span></label>
                     <div class="questionpv-3 hide-block-panneaux-1">
-                      <div class="text-block-321">Quelle est la société concernée par cette demande ?</div><input class="text-field-70 w-input" maxlength="256" name="societe" data-name="societe" placeholder="Nom de la société" type="text">
+                      <div class="text-block-321">Quelle est la société concernée par cette demande ?</div><input class="text-field-70 w-input" maxlength="256" name="societe" data-name="societe" placeholder="Nom de la société" type="text" autocomplete="organization">
                     </div>
                     <div class="div-block-87 panneauxv">
                       <div class="div-block-83">
@@ -139,7 +139,7 @@
                 <div data-form="step" class="etape-4">
                   <div class="text-block-321 local superficie merci">Merci ! Nous avons bien identifié vos besoins !</div>
                   <div class="questionpv-3">
-                    <div class="text-block-322 black-color-1">À quelle adresse e-mail nos partenaires doivent-ils vous contacter ?</div><input class="text-field-69 w-input" maxlength="256" name="mail" data-name="mail" placeholder="Adresse e-mail" type="email" required="">
+                    <div class="text-block-322 black-color-1">À quelle adresse e-mail nos partenaires doivent-ils vous contacter ?</div><input class="text-field-69 w-input" maxlength="256" name="mail" data-name="mail" placeholder="Adresse e-mail" type="email" required="" autocomplete="email">
                     <div class="div-block-87 panneauxv">
                       <div class="div-block-83">
                         <a data-form="back-btn" href="#" class="precedent panneaux-precedent btn-pn-1-2 w-button">PRÉCÉDENT </a>
@@ -152,7 +152,7 @@
                 </div>
                 <div data-form="step" class="etape-4">
                   <div class="text-block-321 local superficie merci">Quel est le nom de votre entreprise ?</div>
-                  <div class="questionpv-3"><input class="text-field-69 w-input" maxlength="256" name="societe" data-name="societe" placeholder="Entreprise" type="text" id="societe" required="">
+                  <div class="questionpv-3"><input class="text-field-69 w-input" maxlength="256" name="societe" data-name="societe" placeholder="Entreprise" type="text" id="societe" required="" autocomplete="organization">
                     <div class="div-block-87 panneauxv">
                       <div class="div-block-83">
                         <a data-form="back-btn" href="#" class="precedent panneaux-precedent btn-pn-1-2 w-button">PRÉCÉDENT </a>
@@ -165,7 +165,7 @@
                 </div>
                 <div data-form="step" class="etape-4 etape-consentement">
                   <div class="text-block-321 local superficie merci">À quel nom et numéro de téléphone nos partenaires peuvent-ils vous joindre ?</div>
-                  <div class="questionpv-3"><input class="text-field-70 name input-auto w-input" maxlength="256" name="nom" data-name="nom" placeholder="Nom" type="text" required=""><input class="text-field-70 name input-auto w-input" maxlength="256" name="prenom" data-name="prenom" placeholder="Prénom" type="text" required=""><input class="text-field-70 w-input" data-phone-autoformat="xxxxx" maxlength="256" data-min-character="5" name="code_postal" data-name="code_postal" placeholder="Code postal" type="tel" required=""><input class="text-field-70 w-input" data-phone-autoformat="xx xx xx xx xx" maxlength="256" data-min-character="14" name="telephone" data-name="telephone" placeholder="Téléphone" type="tel" required="">
+                  <div class="questionpv-3"><input class="text-field-70 name input-auto w-input" maxlength="256" name="nom" data-name="nom" placeholder="Nom" type="text" required="" autocomplete="family-name"><input class="text-field-70 name input-auto w-input" maxlength="256" name="prenom" data-name="prenom" placeholder="Prénom" type="text" required="" autocomplete="given-name"><input class="text-field-70 w-input" data-phone-autoformat="xxxxx" maxlength="256" data-min-character="5" name="code_postal" data-name="code_postal" placeholder="Code postal" type="tel" required="" autocomplete="postal-code" inputmode="numeric"><input class="text-field-70 w-input" data-phone-autoformat="xx xx xx xx xx" maxlength="256" data-min-character="14" name="telephone" data-name="telephone" placeholder="Téléphone" type="tel" required="" autocomplete="tel" inputmode="tel">
                     <div class="consentement-j">
                       <div class="titre-consentement-3 texte-consenemtent-1 justifie-1">En validant, j&#x27;accepte que les informations saisies soient exploitées dans le cadre de la relation commerciale qui peut en découler</div>
                       <div class="consentement-1-2 consenetemetn-2"><label class="consentement-2 w-radio"><input type="radio" name="consentement" id="oui" data-name="consentement" required="" data-w-id="51e1aec7-521e-2fd7-3206-97a30931a269" class="w-form-formradioinput w-radio-input" value="oui"><span class="radio-button-label-164 texte-pn-1 w-form-label" for="oui">J&#x27;accepte</span></label><label class="w-radio"><input type="radio" name="consentement" data-name="consentement" data-w-id="51e1aec7-521e-2fd7-3206-97a30931a26d" class="w-form-formradioinput w-radio-input" value="non"><span class="radio-button-label-163 texte-pn-1 w-form-label">Je n&#x27;accepte pas</span></label></div>

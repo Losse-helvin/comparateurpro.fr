@@ -57,17 +57,17 @@
                 <input type="hidden" value="" name="categorie">
                 <input type="hidden" value="1" name="coordonnee">
               </div>
-              <div class="civilite-email-tel"><input class="raison-sociale w-input" maxlength="256" name="societe" data-name="societe" placeholder="Raison Sociale" type="text" required=""><input class="zipcode w-input" maxlength="256" name="code_postal" data-name="code_postal" placeholder="Code postal" type="text" required=""><select name="civilite" data-name="civilite" required="" class="civilite w-select">
+              <div class="civilite-email-tel"><input class="raison-sociale w-input" maxlength="256" name="societe" data-name="societe" placeholder="Raison Sociale" type="text" required="" autocomplete="organization"><input class="zipcode w-input" maxlength="256" name="code_postal" data-name="code_postal" placeholder="Code postal" type="text" required="" autocomplete="postal-code" inputmode="numeric"><select name="civilite" data-name="civilite" required="" class="civilite w-select">
                   <option value="">Civilité</option>
                   <option value="0">Monsieur</option>
                   <option value="1">Madame</option>
                 </select>
                 <div class="jogger-bloc-1">
                   <div id="w-node-fbab6475-0557-a890-f829-23d4f2422d16-3757e8db" class="w-layout-layout quick-stack-90 wf-layout-layout">
-                    <div class="w-layout-cell cell-168"><input class="name w-input" maxlength="256" name="nom" data-name="nom" placeholder="Nom" type="text" required=""></div>
-                    <div class="w-layout-cell"><input class="name w-input" maxlength="256" name="prenom" data-name="prenom" placeholder="Prénom" type="text" required=""></div>
-                    <div class="w-layout-cell"><input class="phone w-input" maxlength="256" name="telephone" data-name="telephone" placeholder="Téléphone" type="text" required=""></div>
-                    <div class="w-layout-cell"><input class="email w-input" maxlength="256" name="mail-2" data-name="Mail 2" placeholder="Email" type="email" id="mail-2" required=""></div>
+                    <div class="w-layout-cell cell-168"><input class="name w-input" maxlength="256" name="nom" data-name="nom" placeholder="Nom" type="text" required="" autocomplete="family-name"></div>
+                    <div class="w-layout-cell"><input class="name w-input" maxlength="256" name="prenom" data-name="prenom" placeholder="Prénom" type="text" required="" autocomplete="given-name"></div>
+                    <div class="w-layout-cell"><input class="phone w-input" maxlength="256" name="telephone" data-name="telephone" placeholder="Téléphone" type="text" required="" autocomplete="tel" inputmode="tel"></div>
+                    <div class="w-layout-cell"><input class="email w-input" maxlength="256" name="mail-2" data-name="Mail 2" placeholder="Email" type="email" id="mail-2" required="" autocomplete="email"></div>
                   </div>
                 </div>
               </div><input type="submit" data-wait="Patienter ..." class="btn-valide-dacia w-button" value="OBTENIR UNE OFFRE &gt;">
