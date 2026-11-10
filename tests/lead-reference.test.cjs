@@ -165,10 +165,10 @@ for (const site of ['LP_reference', 'vehicules-utilitaires', 'assurance-tns', 'a
 });
 
 for (const [site, expected] of [
-  ['assurance-tns', 'ADW_LP_ASSURANCE_TNS'],
-  ['assurance-tns-pro-v2-adw', 'ADW_LP_ASSURANCE_TNS_PRO'],
-  ['assurance-consultants-societe-conseil', 'ADW_LP_ASSURANCE_CONSULTANTS_SOCIETE_CONSEIL'],
-  ['assurance-agriculteur', 'ADW_LP_ASSURANCE_AGRICULTEUR']
+  ['assurance-tns', 'TNS'],
+  ['assurance-tns-pro-v2-adw', 'TNS_PRO'],
+  ['assurance-consultants-societe-conseil', 'IARD_CONSEIL'],
+  ['assurance-agriculteur', 'IARD_AGRI_2']
 ]) test(`${site} : identité et réponse métier conservées`, async () => {
   const c = await setup(site, {cors:true});
   try {

@@ -12,7 +12,7 @@ try {
     leadApiCredentials: 'omit',
     googleScriptUrl: '',
     sheetTimeoutMs: 15000,
-    formId: 'ADW_LP_ASSURANCE_CONSULTANT',
+    formId: 'ESTHETICIENNE',
     source: 'LP CONSULTANTS',
     smsApiUrl: 'https://mc.hellolead.pro/mon_compte/api/smspartner/envoi_code_verification.php',
     smsCooldown: 120,
