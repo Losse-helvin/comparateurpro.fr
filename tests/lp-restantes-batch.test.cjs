@@ -4,6 +4,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const {JSDOM, VirtualConsole} = require('jsdom');
 const root=path.resolve(__dirname,'..');
+const registre=require('./registre-formid.json');
 const wait=()=>new Promise(r=>setTimeout(r,25));
 const sites=['alfaromeo-tonale','sauvie-defibrillateurs-en-entreprise','edenred-kadeos','lexus-lbx','paritel','paritel-vous-rembourse','toyota-gamme-hybride','primagaz-obtenez-votre-gaz-propane-a-prix-fixe','cartes-carburant'];
 for(const site of sites) test(`${site} : identité, champs métier, SMS et livraison confirmée`,async()=>{
@@ -16,7 +17,7 @@ for(const site of sites) test(`${site} : identité, champs métier, SMS et livra
   try {
     for(const f of ['script.js','lead-handler.js','verification-sms.js'])w.eval(fs.readFileSync(path.join(root,site,f),'utf8'));
     await new Promise(r=>setTimeout(r,400));assert.deepEqual(errors,[]);assert.ok(w.jQuery&&w.lpLead&&w.smsVerification);
-    const f=w.document.querySelector('form[data-ubepro-lead="1"]');assert.ok(f);assert.equal(w.lpLead.config.formId,'ADW-'+site);
+    const f=w.document.querySelector('form[data-ubepro-lead="1"]');assert.ok(f);assert.equal(w.lpLead.config.formId,(registre[site]||{}).formId);
     const set=(selector,value)=>{const x=f.querySelector(selector);if(x)x.value=value;return x;};
     const phone=set('[name="telephone"], [name="T-l-phone"]','0607080910');assert.ok(phone);
     set('[name="nom"], [name="Nom"], [name="nom-2"], [name="nom-3"]','Test');set('[name="prenom"], [name="pr-nom-2"]','Marie');
@@ -31,14 +32,14 @@ for(const site of sites) test(`${site} : identité, champs métier, SMS et livra
     if(site.startsWith('primagaz-obtenez'))set('[name="reponse_champ_1"]','Gaz propane');
     w.jQuery(f).trigger('submit');await wait();assert.equal(requests.filter(x=>x.kind==='crm').length,1);assert.equal(requests.filter(x=>x.kind==='sheet').length,1);assert.notEqual(f.style.display,'none');assert.equal(w.dataLayer.filter(x=>x.event==='formulaire_lead').length,0);
     const blob=requests.find(x=>x.kind==='crm').body;const raw=await new Promise((resolve,reject)=>{const r=new w.FileReader();r.onload=()=>resolve(r.result);r.onerror=reject;r.readAsText(blob);});const data=JSON.parse(raw).payload;
-    assert.equal(data.formId,'ADW-'+site);assert.equal(data.data.mail,'test@example.test');assert.equal(data.data.telephone,'0607080910');assert.equal(data.data.telephone_verifie,'oui');assert.equal(data.data.gclid,undefined);
+    assert.equal(data.formId,(registre[site]||{}).formId);assert.equal(data.data.mail,'test@example.test');assert.equal(data.data.telephone,'0607080910');assert.equal(data.data.telephone_verifie,'oui');assert.equal(data.data.gclid,undefined);
     if(site.startsWith('primagaz-obtenez')){assert.equal(data.data.reponse_1,'Gaz propane');assert.equal(requests.find(x=>x.kind==='sheet').body.get('reponse_1'),'Gaz propane');}
     if(site==='cartes-carburant'){assert.equal(data.data.societe,'Entreprise');assert.equal(data.data.prenom,'Marie');assert.equal(w.lpLead.redirectPreview(),'https://www.comparateurpro.fr/radius-remerciement');}
     if(site==='alfaromeo-tonale'){assert.equal(data.data.civilite,'Mr');assert.equal(w.lpLead.redirectPreview(),'https://www.comparateurpro.fr/alfaromeo/tonale-remerciement');}
     if(site==='toyota-gamme-hybride')assert.equal(data.data.reponse_1,'Yaris Hybride');
     if(site.startsWith('paritel')){assert.equal(requests.find(x=>x.kind==='sheet').body.get('reponse_4'),data.data.reponse_4);assert.equal(requests.find(x=>x.kind==='sheet').body.get('reponse_5'),data.data.reponse_5);assert.equal(data.data.operateur_telephonie,'Opérateur exemple');assert.equal(w.lpLead.redirectPreview(),'https://www.comparateurpro.fr/paritel-typ');}
     if(site.startsWith('sauvie-')){assert.equal(data.data.reponse_1,'1');assert.equal(data.data.reponse_2,'Lour mon Défibrillater');assert.equal(data.data.reponse_3,'TPE/PME');assert.equal(data.data.consentement,'oui');}
-    sheetOk=true;w.jQuery(f).trigger('submit');await wait();assert.equal(f.style.display,'none');assert.equal(w.dataLayer.filter(x=>x.event==='formulaire_lead').length,1);const evt=w.dataLayer.find(x=>x.event==='formulaire_lead');assert.equal(evt.form_id,'ADW-'+site);assert.notEqual(evt.form_name,'Assurance-TNS-Pro-Form');assert.equal(evt.lead_type,'standard');assert.equal(evt.user_data,undefined);
+    sheetOk=true;w.jQuery(f).trigger('submit');await wait();assert.equal(f.style.display,'none');assert.equal(w.dataLayer.filter(x=>x.event==='formulaire_lead').length,1);const evt=w.dataLayer.find(x=>x.event==='formulaire_lead');assert.equal(evt.form_id,(registre[site]||{}).formId);assert.notEqual(evt.form_name,'Assurance-TNS-Pro-Form');assert.equal(evt.lead_type,'standard');assert.equal(evt.user_data,undefined);
   } finally {dom.window.close();}
 });
 

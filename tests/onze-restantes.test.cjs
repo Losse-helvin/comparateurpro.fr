@@ -2,6 +2,7 @@ const {test}=require('node:test');
 const assert=require('node:assert/strict');
 const fs=require('node:fs');const path=require('node:path');const {JSDOM,VirtualConsole}=require('jsdom');
 const root=path.resolve(__dirname,'..'), wait=()=>new Promise(r=>setTimeout(r,30));
+const registre=require('./registre-formid.json');
 const sites=['assurance-test-telephone','assurances-professionnelles','formulaire-globale','gamme-de-rayonnage-actiflip-hd','gamme-de-rayonnage-actiflip-v4','lexus-lbx-2','rc-pro-consultant-conseil-adw','typ-formulaires-typ-secu-form','voiture-nouveau-range-rover','voiture-range-rover','volvo'];
 for(const site of sites)test(`${site} : formulaires indépendants, SMS et confirmation`,async()=>{
  const errors=[];const vc=new VirtualConsole();vc.on('error',v=>{if(String(v).includes('[lp2site]'))errors.push(String(v));});
@@ -14,7 +15,7 @@ for(const site of sites)test(`${site} : formulaires indépendants, SMS et confir
   for(const file of ['script.js','lead-handler.js','verification-sms.js'])w.eval(fs.readFileSync(path.join(root,site,file),'utf8'));await new Promise(r=>setTimeout(r,500));assert.deepEqual(errors,[]);
   const forms=[...w.document.querySelectorAll('form[data-ubepro-lead="1"]')];assert.equal(forms.length,['volvo','lexus-lbx-2','voiture-nouveau-range-rover'].includes(site)?2:1);
   for(const [index,f] of forms.entries()){
-   assert.ok(f.lpLead&&f.smsVerification,`modules du formulaire ${index}`);assert.equal(f.lpLead.config.formId,'ADW-'+site);
+   assert.ok(f.lpLead&&f.smsVerification,`modules du formulaire ${index}`);assert.equal(f.lpLead.config.formId,(registre[site]||{}).formId);
    const name=(names)=>{for(const n of names){const e=[...f.querySelectorAll('[name]')].find(x=>x.name.toLowerCase()===n.toLowerCase()&&x.type!=='checkbox'&&x.type!=='radio');if(e)return e;}return null;};
    const set=(names,value)=>{let el=name(names);if(el){el.value=value;el.dispatchEvent(new w.Event('input',{bubbles:true}));el.dispatchEvent(new w.Event('change',{bubbles:true}));}return el;};
    set(['nom','nom-2'],'Test');set(['prenom','prenom-2'],'Marie');set(['mail','email','email-2'],'test@example.test');set(['societe'],'Société');set(['code_postal','Code-postal'],'75001');
@@ -27,7 +28,7 @@ for(const site of sites)test(`${site} : formulaires indépendants, SMS et confir
    f.querySelector('.sms-send').click();await wait();f.querySelector('.sms-code').value='123456';f.querySelector('.sms-check').click();await wait();assert.equal(f.smsVerification.estVerifie(),true, 'téléphone='+phone.value+' message='+f.querySelector('.sms-message').textContent);
    if(forms.length>1&&index===0)assert.equal(forms[1].smsVerification.estVerifie(),false,'le deuxième téléphone reste non vérifié');
    submit();await wait();assert.equal(req.length,before+2,'tentatives CRM et Sheets ; values='+JSON.stringify([...f.querySelectorAll('input[required]')].map(x=>[x.name,x.value,x.checked]))+' invalid='+[...f.querySelectorAll(':invalid')].map(x=>x.outerHTML).join(' | ')+' messages='+[...f.querySelectorAll('[role=status]')].map(x=>x.textContent).join(' | '));assert.notEqual(f.style.display,'none');if(site==='rc-pro-consultant-conseil-adw')assert.equal(f.querySelector('#s4').classList.contains('active'),false);
-   const raw=await new Promise((resolve,reject)=>{const r=new w.FileReader();r.onload=()=>resolve(r.result);r.onerror=reject;r.readAsText(req[before].body);});const data=JSON.parse(raw).payload;assert.equal(data.formId,'ADW-'+site);assert.equal(data.data.telephone,'060708091'+index);assert.equal(data.data.mail,site==='gamme-de-rayonnage-actiflip-v4'?'':'test@example.test');assert.equal(data.data.telephone_verifie,'oui');assert.equal(data.data.gclid,undefined);
+   const raw=await new Promise((resolve,reject)=>{const r=new w.FileReader();r.onload=()=>resolve(r.result);r.onerror=reject;r.readAsText(req[before].body);});const data=JSON.parse(raw).payload;assert.equal(data.formId,(registre[site]||{}).formId);assert.equal(data.data.telephone,'060708091'+index);assert.equal(data.data.mail,site==='gamme-de-rayonnage-actiflip-v4'?'':'test@example.test');assert.equal(data.data.telephone_verifie,'oui');assert.equal(data.data.gclid,undefined);
    if(site.startsWith('voiture-'))assert.equal(data.data.consentement_email,'non');
    if(site==='rc-pro-consultant-conseil-adw'){assert.equal(data.data.consentement,'oui');assert.ok(data.data.reponse_1);assert.equal(data.data.reponse_3,'1');}
    sheetOk=true;submit();await wait();if(site==='rc-pro-consultant-conseil-adw')assert.equal(f.querySelector('#s4').classList.contains('active'),true);else assert.equal(f.style.display,'none');sheetOk=false;

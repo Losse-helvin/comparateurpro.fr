@@ -4,6 +4,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const {JSDOM, VirtualConsole} = require('jsdom');
 const root=path.resolve(__dirname,'..');
+const registre=require('./registre-formid.json');
 const wait=()=>new Promise(r=>setTimeout(r,25));
 
 for (const site of ['primagaz', 'dacia-jogger', 'renault-capture', 'intuis', 'sage-gestion-de-la-paie-hd', 'ayvens-france', 'mitsubishi-fuso']) {
@@ -31,7 +32,7 @@ for (const site of ['primagaz', 'dacia-jogger', 'renault-capture', 'intuis', 'sa
       await new Promise(r=>setTimeout(r,400));
       assert.deepEqual(errors,[]); assert.ok(w.jQuery && w.lpLead && w.smsVerification);
       const form=w.document.querySelector('form[data-ubepro-lead="1"]');
-      assert.ok(form); assert.equal(w.lpLead.config.formId,'ADW-'+site);
+      assert.ok(form); assert.equal(w.lpLead.config.formId,(registre[site]||{}).formId);
       assert.equal(w.lpLead.config.leadApiUrl,'https://mc.hellolead.pro/mon_compte/api/webflow/get_information.php');
       const phone=form.querySelector('[name="telephone"]');phone.value='0607080910';
       form.querySelector('[name="nom"]').value='Test';form.querySelector('[name="prenom"]').value='Marie';
@@ -72,7 +73,7 @@ for (const site of ['primagaz', 'dacia-jogger', 'renault-capture', 'intuis', 'sa
       const blob=requests.find(x=>x.kind==='crm').body;
       const raw=await new Promise((resolve,reject)=>{const reader=new w.FileReader();reader.onload=()=>resolve(reader.result);reader.onerror=reject;reader.readAsText(blob);});
       const payload=JSON.parse(raw).payload;
-      assert.equal(payload.formId,'ADW-'+site);assert.equal(payload.data.mail,'test@example.test');
+      assert.equal(payload.formId,(registre[site]||{}).formId);assert.equal(payload.data.mail,'test@example.test');
       assert.equal(payload.data.telephone_verifie,'oui');assert.equal(payload.data.gclid,undefined);
       if(civilite)assert.equal(payload.data.civilite,'1');
       if(q)assert.equal(payload.data.reponse_1,q.value);

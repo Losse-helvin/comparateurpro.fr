@@ -80,7 +80,7 @@ test('parcours original : succès et événement seulement après confirmation S
     assert.equal(sheet.get('telephone_verifie'), 'oui');
     assert.equal(sheet.get('gclid'), null);
     assert.notEqual(sheet.get('categorie'), 'campagne');
-    assert.equal(c.w.ubeproLead.config.formId, 'ADW_LP_ASSURANCE_CONSULTANT');
+    assert.equal(c.w.ubeproLead.config.formId, 'ESTHETICIENNE');
     assert.match(sheet.get('reponse_1'), /Responsabilité civile/);
   } finally { c.dom.window.close(); }
 });
@@ -134,7 +134,7 @@ test('réponse CRM CORS confirmée autorise le succès même si Sheets échoue',
     assert.equal(c.f.querySelector('.step-done').classList.contains('is-active'),true);
     assert.equal(c.w.dataLayer.filter(x=>x.event==='formulaire_lead').length,1);
     const payload=JSON.parse(c.requests.find(x=>x.kind==='crm-cors').body).payload;
-    assert.equal(payload.formId,'ADW_LP_ASSURANCE_CONSULTANT');
+    assert.equal(payload.formId,'ESTHETICIENNE');
     assert.equal(payload.data.telephone_verifie,'oui');
     assert.match(payload.data.reponse_1,/Responsabilité civile/);
     assert.notEqual(payload.data.categorie,'campagne');

@@ -24,9 +24,10 @@ var AGV_CONFIG = {
   leadApiCredentials: 'omit',
   googleScriptUrl: 'https://script.google.com/macros/s/AKfycbwrbyCb9-cAmIRPGNvnb-aM-CkhQAerrkfP3_HSw-ewmThxsn4vbZt5daaq2aOnL01a1w/exec',
   sheetTimeoutMs: 15000,
-  formId: 'ADW_LP_SOLUTIONS_AGV_AMR',          // deja enregistre cote CRM (LP en production)
+  formId: 'AGV_1',          // deja enregistre cote CRM (LP en production)
+  categorieCode: '800',               // défaut (categories_codes_sms.xlsx)
   formName: 'Email-Form-AGV',
-  source: 'ADW',   // source de secours sans campagne (identite d'origine de la LP)
+  source: 'ADW',                // défaut : canal ADW (cf. brief optimisation)
   microField: '',  // cette LP n'a pas de question micro-entrepreneur
   publicLandingPath: '',
   debug: false
@@ -54,6 +55,23 @@ var AGV_CONFIG = {
   var parentBridgeNonce = '';
   var sending = false;
   var submissionId = makeId();
+
+
+  /* ---- Constantes de routage (brief optimisation) ----
+     Si l'URL n'apporte rien (campagne mal configurée, trafic direct, paramètres
+     perdus), le lead doit QUAND MÊME porter une source, une catégorie et les
+     variantes utm/ltm correspondantes. Ce sont des constantes de campagne,
+     pas des données de navigation : elles sont donc transmises indépendamment
+     du consentement analytics. Aucun click ID, aucune donnée personnelle. */
+  var ROUTING_KEYS = ['source', 'categorie', 'utm_source', 'utm_category', 'ltm_source', 'ltm_category'];
+  var TRACKING_DEFAULTS = {
+    source: 'ADW',
+    categorie: CONFIG.categorieCode,
+    utm_source: 'ADW',
+    utm_category: CONFIG.categorieCode,
+    ltm_source: 'ADW',
+    ltm_category: CONFIG.categorieCode
+  };
 
   var TRACKING_DEFS = [
     { key: 'source', aliases: ['ltm_source', 'utm_source', 'source'] },
@@ -292,6 +310,7 @@ var AGV_CONFIG = {
     var result = {};
     TRACKING_DEFS.forEach(function (def) {
       result[def.key] = trackingKeyGranted(def.key) ? cleanParam(trackingValues[def.key] || '') : '';
+      if (!result[def.key] && TRACKING_DEFAULTS[def.key]) result[def.key] = TRACKING_DEFAULTS[def.key];
     });
     return result;
   }
@@ -501,6 +520,7 @@ var AGV_CONFIG = {
     if (champExiste('siret')) data.siret = textValue('siret');
     data.source = tracking.ltm_source || tracking.utm_source || tracking.source || CONFIG.source;
     data.categorie = getCurrentUrlCategory() || textValue('categorie') || tracking.categorie || '';
+    if (!data.categorie) data.categorie = CONFIG.categorieCode;
     data.coordonnee = textValue('coordonnee') || '1';
     data.consentement = String(radioValue('consentement')).toLowerCase() === 'oui' ? 'oui' : 'non';
 
@@ -544,6 +564,11 @@ var AGV_CONFIG = {
         if (tracking[key]) data[key] = tracking[key];
       });
     }
+    /* Constantes de routage : toujours transmises, indépendamment du consentement
+       (constantes de campagne, pas données de navigation personnelles). */
+    ROUTING_KEYS.forEach(function (key) {
+      if (!data[key] && tracking[key]) data[key] = tracking[key];
+    });
     return data;
   }
 
