@@ -25,7 +25,6 @@ var AGV_CONFIG = {
   googleScriptUrl: 'https://script.google.com/macros/s/AKfycbwrbyCb9-cAmIRPGNvnb-aM-CkhQAerrkfP3_HSw-ewmThxsn4vbZt5daaq2aOnL01a1w/exec',
   sheetTimeoutMs: 15000,
   formId: 'l06121438539316f',          // deja enregistre cote CRM (LP en production)
-  categorieCode: '800',               // défaut (categories_codes_sms.xlsx)
   formName: 'Email-Form-AGV',
   source: '',                   // révision 10/11/2026 : vide si l'URL n'apporte rien
   microField: '',  // cette LP n'a pas de question micro-entrepreneur
@@ -308,7 +307,7 @@ var AGV_CONFIG = {
     Object.keys(t).forEach(function (k) {
       var input = form.querySelector('input[name="' + k + '"]');
       if (!input || !t[k]) return;
-      if (input.value === '' || (k === 'source' && input.value === 'SOURCE PAR DEFAUT')) input.value = t[k];
+      if (input.value === '') input.value = t[k];
     });
     var cat = getCurrentUrlCategory();
     var catField = form.querySelector('input[name="categorie"]');
@@ -720,7 +719,7 @@ var AGV_CONFIG = {
         ['code_postal', data.code_postal], ['mail', data.mail], ['telephone', textValue('telephone')]].forEach(function (pair) {
         if (pair[1]) localStorage.setItem(pair[0], pair[1]);
       });
-      localStorage.setItem('source', (data.source || '') + ' TYP');
+      localStorage.setItem('source', (data.source || ''));
     } catch (e) {}
     try {
       var link = new URLSearchParams(location.search).get('ltm_typ') ||

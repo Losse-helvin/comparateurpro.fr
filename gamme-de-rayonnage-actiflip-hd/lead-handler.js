@@ -25,7 +25,6 @@ var UBE_CONFIG = {
   googleScriptUrl: 'https://script.google.com/macros/s/AKfycbwrbyCb9-cAmIRPGNvnb-aM-CkhQAerrkfP3_HSw-ewmThxsn4vbZt5daaq2aOnL01a1w/exec',
   sheetTimeoutMs: 15000,
   formId: 'o58015218189106d',          // a confirmer/enregistrer cote CRM
-  categorieCode: '173',               // défaut (categories_codes_sms.xlsx)
   formName: "actiflip-formly",
   source: '',                   // révision 10/11/2026 : vide si l'URL n'apporte rien
   microField: '',  // champ radio auto-entrepreneur ('' = aucun)
@@ -67,9 +66,7 @@ var UBE_CONFIG = {
     }
     return null;
   }
-  // Conserver la catégorie métier initiale, sans reprendre une campagne non consentie.
   var categoryField = fieldEl('categorie');
-  var initialCategory = categoryField ? String(categoryField.defaultValue || '').trim() : '';
   var phone = fieldEl('telephone');
   var btn = form.querySelector('.bouton-valider') || form.querySelector('[data-form="submit-btn"]') || form.querySelector('input[type="submit"]');
   var done = wrap ? wrap.querySelector('.w-form-done') : null;
@@ -339,7 +336,7 @@ var UBE_CONFIG = {
     Object.keys(t).forEach(function (k) {
       var input = form.querySelector('input[name="' + k + '"]');
       if (!input || !t[k]) return;
-      if (input.value === '' || (k === 'source' && input.value === 'SOURCE PAR DEFAUT')) input.value = t[k];
+      if (input.value === '') input.value = t[k];
     });
     var cat = getCurrentUrlCategory();
     var catField = form.querySelector('input[name="categorie"]');
@@ -586,8 +583,7 @@ var UBE_CONFIG = {
     if (champExiste('civilite')) data.civilite = radioValue('civilite') || textValue('civilite');
     if (champExiste('siret')) data.siret = textValue('siret');
     data.source = tracking.ltm_source || tracking.utm_source || tracking.source || CONFIG.source;
-    data.categorie = getCurrentUrlCategory() || textValue('categorie') || tracking.categorie ||
-      initialCategory || '';
+    data.categorie = getCurrentUrlCategory() || tracking.categorie || '';
     data.coordonnee = textValue('coordonnee') || '1';
     data.consentement = String(radioValue('consentement')).toLowerCase() === 'oui' ? 'oui' : 'non';
 
@@ -819,7 +815,7 @@ var UBE_CONFIG = {
         ['code_postal', data.code_postal], ['mail', data.mail], ['telephone', textValue('telephone')]].forEach(function (pair) {
         if (pair[1]) localStorage.setItem(pair[0], pair[1]);
       });
-      localStorage.setItem('source', (data.source || '') + ' TYP');
+      localStorage.setItem('source', (data.source || ''));
     } catch (e) {}
     var target = redirectTarget();
     if (target) window.setTimeout(function () { location.href = target; }, 3000);

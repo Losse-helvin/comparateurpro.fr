@@ -9,3 +9,4 @@ __pycache__/
 # Note : les actifs lourds (videos/, img/) sont volontairement versionnés
 # aujourd'hui. Voir ANALYSE/REGISTRE-ACTIONS.md, étape 4, avant de changer cela.
 .revision-backup/
+.sauvegarde-defauts/
