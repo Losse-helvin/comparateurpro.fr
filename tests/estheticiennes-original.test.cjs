@@ -8,7 +8,7 @@ const wait = () => new Promise(resolve => setTimeout(resolve, 20));
 
 async function setup(opts = {}) {
   const dom = new JSDOM(fs.readFileSync(path.join(dir, 'index.html'), 'utf8'), {
-    url: 'https://example.test/?utm_source=test&gclid=abc&categorie=campagne', runScripts: 'outside-only', pretendToBeVisual: true
+    url: opts.url || 'https://example.test/?utm_source=test&gclid=abc&categorie=campagne', runScripts: 'outside-only', pretendToBeVisual: true
   });
   const w = dom.window, requests = [];
   w.scrollTo = () => {};
@@ -170,4 +170,18 @@ test('la page accepte le suivi consenti du parent esthéticiennes connu, mais pa
     send('https://evil.example',{type:'landing-url',nonce,url:'https://evil.example/?utm_source=attaque'});
     assert.equal(c.w.ubeproLead.preview().payload.data.source,'parent');
   } finally { c.dom.window.close(); }
+});
+
+
+test('tracking : aucune source fabriquée sans paramètre, et URL réelle conservée', async () => {
+  const empty = await setup({ url: 'https://example.test/', consent: true });
+  const tagged = await setup({ url: 'https://example.test/?utm_source=google&categorie=999', consent: true });
+  try {
+    assert.equal(empty.f.getAttribute('data-source'), '');
+    assert.equal(empty.w.ubeproLead.preview().payload.data.source, '');
+    assert.equal(empty.w.ubeproLead.preview().payload.data.categorie, '');
+    assert.equal(empty.w.ubeproLead.googleSheetPreview().source, '');
+    assert.equal(tagged.w.ubeproLead.preview().payload.data.source, 'google');
+    assert.equal(tagged.w.ubeproLead.preview().payload.data.categorie, '999');
+  } finally { empty.dom.window.close(); tagged.dom.window.close(); }
 });

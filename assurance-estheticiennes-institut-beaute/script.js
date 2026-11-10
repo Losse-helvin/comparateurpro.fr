@@ -13,7 +13,7 @@ try {
     googleScriptUrl: '',
     sheetTimeoutMs: 15000,
     formId: 'a46519725349109k',
-    source: 'LP CONSULTANTS',
+    source: '',
     smsApiUrl: 'https://mc.hellolead.pro/mon_compte/api/smspartner/envoi_code_verification.php',
     smsCooldown: 120,
     debug: false
