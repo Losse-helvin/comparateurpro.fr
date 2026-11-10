@@ -24,10 +24,10 @@ var UBE_CONFIG = {
   leadApiCredentials: 'omit',
   googleScriptUrl: 'https://script.google.com/macros/s/AKfycbwrbyCb9-cAmIRPGNvnb-aM-CkhQAerrkfP3_HSw-ewmThxsn4vbZt5daaq2aOnL01a1w/exec',
   sheetTimeoutMs: 15000,
-  formId: 'MULTIRISQUE',          // a confirmer/enregistrer cote CRM
+  formId: 'm99749046881224m',          // a confirmer/enregistrer cote CRM
   categorieCode: '117',               // défaut (categories_codes_sms.xlsx)
   formName: 'assurance-multirisque-adw-formly',
-  source: 'ADW',                // défaut : canal ADW (cf. brief optimisation)
+  source: '',                   // révision 10/11/2026 : vide si l'URL n'apporte rien
   microField: "reponse_4",  // champ radio auto-entrepreneur ('' = aucun)
   publicLandingPath: '',
   debug: false
@@ -88,21 +88,10 @@ var UBE_CONFIG = {
   var submissionId = makeId();
 
 
-  /* ---- Constantes de routage (brief optimisation) ----
-     Si l'URL n'apporte rien (campagne mal configurée, trafic direct, paramètres
-     perdus), le lead doit QUAND MÊME porter une source, une catégorie et les
-     variantes utm/ltm correspondantes. Ce sont des constantes de campagne,
-     pas des données de navigation : elles sont donc transmises indépendamment
-     du consentement analytics. Aucun click ID, aucune donnée personnelle. */
-  var ROUTING_KEYS = ['source', 'categorie', 'utm_source', 'utm_category', 'ltm_source', 'ltm_category'];
-  var TRACKING_DEFAULTS = {
-    source: 'ADW',
-    categorie: CONFIG.categorieCode,
-    utm_source: 'ADW',
-    utm_category: CONFIG.categorieCode,
-    ltm_source: 'ADW',
-    ltm_category: CONFIG.categorieCode
-  };
+  /* ---- Collecte du tracking : SANS CONDITION DE CONSENTEMENT (révision 10/11/2026)
+     Le tracking URL (utm_*, ltm_*, click IDs) et son envoi au CRM / Google Sheets /
+     GTM s'exécutent désormais quel que soit l'état du consentement. Aucune valeur
+     par défaut : si l'URL n'apporte rien, le champ reste vide. */
 
   var TRACKING_DEFS = [
     { key: 'source', aliases: ['ltm_source', 'utm_source', 'source'] },
@@ -183,12 +172,13 @@ var UBE_CONFIG = {
     return { necessary: true, analytics: false, marketing: false, choiceMade: false };
   }
   var preferences = lirePreferences();
-  function analyticsGranted() { return preferences.analytics === true; }
-  function marketingGranted() { return preferences.marketing === true; }
-  function trackingGranted() { return analyticsGranted() || marketingGranted(); }
-  function trackingKeyGranted(key) {
-    return CLICK_IDS.indexOf(key) !== -1 ? marketingGranted() : analyticsGranted();
-  }
+  /* Révision 10/11/2026 : le tracking et le Consent Mode se déclenchent SANS
+     consentement. Les préférences restent lues (pour l'affichage et pour un refus
+     a posteriori) mais ne conditionnent plus ni la collecte ni la transmission. */
+  function analyticsGranted() { return true; }
+  function marketingGranted() { return true; }
+  function trackingGranted() { return true; }
+  function trackingKeyGranted() { return true; }
   function rafraichirConsentement() {
     preferences = lirePreferences();
     purgeUnconsentedTracking();
@@ -342,7 +332,6 @@ var UBE_CONFIG = {
     var result = {};
     TRACKING_DEFS.forEach(function (def) {
       result[def.key] = trackingKeyGranted(def.key) ? cleanParam(trackingValues[def.key] || '') : '';
-      if (!result[def.key] && TRACKING_DEFAULTS[def.key]) result[def.key] = TRACKING_DEFAULTS[def.key];
     });
     return result;
   }
@@ -562,7 +551,7 @@ var UBE_CONFIG = {
     if (champExiste('siret')) data.siret = textValue('siret');
     data.source = tracking.ltm_source || tracking.utm_source || tracking.source || CONFIG.source;
     data.categorie = getCurrentUrlCategory() || textValue('categorie') || tracking.categorie ||
-      initialCategory || CONFIG.categorieCode;
+      initialCategory || '';
     data.coordonnee = textValue('coordonnee') || '1';
     data.consentement = String(radioValue('consentement')).toLowerCase() === 'oui' ? 'oui' : 'non';
 
@@ -606,11 +595,6 @@ var UBE_CONFIG = {
         if (tracking[key]) data[key] = tracking[key];
       });
     }
-    /* Constantes de routage : toujours transmises, indépendamment du consentement
-       (constantes de campagne, pas données de navigation personnelles). */
-    ROUTING_KEYS.forEach(function (key) {
-      if (!data[key] && tracking[key]) data[key] = tracking[key];
-    });
     return data;
   }
 
