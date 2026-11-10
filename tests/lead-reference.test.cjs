@@ -74,8 +74,12 @@ for (const site of ['LP_reference', 'vehicules-utilitaires', 'assurance-tns', 'a
       c.sheet(true); await submit(c);
       assert.equal(c.form.style.display, 'none');
       const body = c.requests.filter(x => x.kind === 'sheet').at(-1).body;
-      assert.equal(body.get('telephone_verifie'), 'oui'); assert.equal(body.get('gclid'), null);
-      assert.notEqual(body.get('categorie'), 'campagne');
+      assert.equal(body.get('telephone_verifie'), 'oui');
+      /* Révision 10/11/2026 : le tracking se collecte SANS consentement.
+         Le localStorage est vierge dans ce scénario (aucun choix exprimé) :
+         le click ID et la catégorie de l'URL doivent donc remonter. */
+      assert.equal(body.get('gclid'), 'abc');
+      assert.equal(body.get('categorie'), 'campagne');
       assert.equal(c.w.dataLayer.filter(x => x.event === 'formulaire_lead').length, 1);
     } finally { c.dom.window.close(); }
   });
@@ -165,10 +169,10 @@ for (const site of ['LP_reference', 'vehicules-utilitaires', 'assurance-tns', 'a
 });
 
 for (const [site, expected] of [
-  ['assurance-tns', 'TNS'],
-  ['assurance-tns-pro-v2-adw', 'TNS_PRO'],
-  ['assurance-consultants-societe-conseil', 'IARD_CONSEIL'],
-  ['assurance-agriculteur', 'IARD_AGRI_2']
+  ['assurance-tns', 'n51697025492127l'],
+  ['assurance-tns-pro-v2-adw', 'i16952589797203d'],
+  ['assurance-consultants-societe-conseil', 'a59107373586363o'],
+  ['assurance-agriculteur', 'g52511870188750m']
 ]) test(`${site} : identité et réponse métier conservées`, async () => {
   const c = await setup(site, {cors:true});
   try {

@@ -18,12 +18,12 @@
     // Cette partie est CRUCIALE pour la conformité (par exemple, DMA).
     // Elle DOIT PRÉCÉDER tout autre script Google (GTM, GA4, GADS, etc.)
     gtag('consent', 'default', {
-        'ad_storage': 'denied',
-        'analytics_storage': 'denied',
-        'ad_user_data': 'denied',
-        'ad_personalization': 'denied',
-        'security_storage': 'granted', // Généralement accordé par défaut (nécessaire à la sécurité du site)
-        'wait_for_update': 500 // Temps maximum en ms pour que le consentement soit mis à jour
+        'ad_storage': 'granted',
+        'analytics_storage': 'granted',
+        'ad_user_data': 'granted',
+        'ad_personalization': 'granted',
+        'security_storage': 'granted',
+        'wait_for_update': 500
     });
 </script>
   <!--  Google tag (gtag.js)  -->

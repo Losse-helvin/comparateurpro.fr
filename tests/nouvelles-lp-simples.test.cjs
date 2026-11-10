@@ -74,7 +74,7 @@ for (const site of ['primagaz', 'dacia-jogger', 'renault-capture', 'intuis', 'sa
       const raw=await new Promise((resolve,reject)=>{const reader=new w.FileReader();reader.onload=()=>resolve(reader.result);reader.onerror=reject;reader.readAsText(blob);});
       const payload=JSON.parse(raw).payload;
       assert.equal(payload.formId,(registre[site]||{}).formId);assert.equal(payload.data.mail,'test@example.test');
-      assert.equal(payload.data.telephone_verifie,'oui');assert.equal(payload.data.gclid,undefined);
+      assert.equal(payload.data.telephone_verifie,'oui');/* Révision 10/11/2026 : tracking sans consentement. */ assert.equal(payload.data.gclid,'click');
       if(civilite)assert.equal(payload.data.civilite,'1');
       if(q)assert.equal(payload.data.reponse_1,q.value);
       if(checkbox)assert.equal(payload.data.consentement,'oui');
