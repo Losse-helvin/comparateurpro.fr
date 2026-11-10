@@ -24,9 +24,9 @@ var UBE_CONFIG = {
   leadApiCredentials: 'omit',
   googleScriptUrl: 'https://script.google.com/macros/s/AKfycbwrbyCb9-cAmIRPGNvnb-aM-CkhQAerrkfP3_HSw-ewmThxsn4vbZt5daaq2aOnL01a1w/exec',
   sheetTimeoutMs: 15000,
-  formId: 'ADW_LP_VEHICULES_DE_SOCIETE',          // a confirmer/enregistrer cote CRM
+  formId: 'a13749586307084i',          // a confirmer/enregistrer cote CRM
   formName: 'voiture-professionnel-form-ubepro',
-  source: 'LP VEHICULES DE SOCIETE',   // source de secours sans campagne
+  source: '',   // source de secours sans campagne
   microField: '',  // champ radio auto-entrepreneur ('' = aucun)
   publicLandingPath: '',
   debug: false
@@ -162,12 +162,10 @@ var UBE_CONFIG = {
     return { necessary: true, analytics: false, marketing: false, choiceMade: false };
   }
   var preferences = lirePreferences();
-  function analyticsGranted() { return preferences.analytics === true; }
-  function marketingGranted() { return preferences.marketing === true; }
-  function trackingGranted() { return analyticsGranted() || marketingGranted(); }
-  function trackingKeyGranted(key) {
-    return CLICK_IDS.indexOf(key) !== -1 ? marketingGranted() : analyticsGranted();
-  }
+  function analyticsGranted() { return true; }
+  function marketingGranted() { return true; }
+  function trackingGranted() { return true; }
+  function trackingKeyGranted() { return true; }
   function rafraichirConsentement() {
     preferences = lirePreferences();
     purgeUnconsentedTracking();
@@ -328,7 +326,7 @@ var UBE_CONFIG = {
     Object.keys(t).forEach(function (k) {
       var input = form.querySelector('input[name="' + k + '"]');
       if (!input || !t[k]) return;
-      if (input.value === '' || (k === 'source' && input.value === 'SOURCE PAR DEFAUT')) input.value = t[k];
+      if (input.value === '') input.value = t[k];
     });
     var cat = getCurrentUrlCategory();
     var catField = form.querySelector('input[name="categorie"]');
@@ -535,7 +533,7 @@ var UBE_CONFIG = {
     if (champExiste('civilite')) data.civilite = radioValue('civilite') || textValue('civilite');
     if (champExiste('siret')) data.siret = textValue('siret');
     data.source = tracking.ltm_source || tracking.utm_source || tracking.source || CONFIG.source;
-    data.categorie = getCurrentUrlCategory() || textValue('categorie') || tracking.categorie || '';
+    data.categorie = getCurrentUrlCategory() || tracking.categorie || '';
     data.coordonnee = textValue('coordonnee') || '1';
     data.consentement = String(radioValue('consentement')).toLowerCase() === 'oui' ? 'oui' : 'non';
 
@@ -761,7 +759,7 @@ var UBE_CONFIG = {
         ['code_postal', data.code_postal], ['mail', data.mail], ['telephone', textValue('telephone')]].forEach(function (pair) {
         if (pair[1]) localStorage.setItem(pair[0], pair[1]);
       });
-      localStorage.setItem('source', (data.source || '') + ' TYP');
+      localStorage.setItem('source', (data.source || ''));
     } catch (e) {}
     try {
       var link = new URLSearchParams(location.search).get('ltm_typ') ||
