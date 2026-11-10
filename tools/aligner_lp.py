@@ -110,7 +110,7 @@ def patch_html(txt: str, form_id: str, mobile: bool) -> tuple[str, list[str]]:
 
     def vide_attr(m):
         acts.append(f"attribut {m.group(1)} : {m.group(2)!r} -> vide")
-        return f'{m.group(1)}==""'
+        return f'{m.group(1)}=""'
 
     txt = re.sub(r'(data-(?:source|categorie))="([^"]*)"', vide_attr, txt)
 
