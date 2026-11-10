@@ -361,7 +361,7 @@ try {
     try { sessionStorage.setItem(PARENT_URL_KEY, entryUrl); } catch (error) {}
     if (categoryField) {
       var category = analyticsGranted() ? getCurrentUrlCategory() : '';
-      categoryField.value = category || initialCategory;
+      categoryField.value = category || '';
     }
   }
 
@@ -505,7 +505,6 @@ try {
   var smsCountdown = null;
   var submissionId = makeId();
   var categoryField = form.querySelector('[name="categorie"]');
-  var initialCategory = categoryField ? String(categoryField.defaultValue || '').trim() : '';
   if (categoryField && analyticsGranted() && getCurrentUrlCategory()) categoryField.value = getCurrentUrlCategory();
 
   form.querySelectorAll('input, select, textarea').forEach(function (field) {
@@ -1195,7 +1194,7 @@ try {
     var tracking = getTrackingPayload();
     var category = analyticsGranted()
       ? (getCurrentUrlCategory() || textValue('categorie') || tracking.categorie || '')
-      : initialCategory;
+      : '';
     var campaignSource = tracking.ltm_source || tracking.utm_source || tracking.source || formConfig.source;
     var data = {
       nom: textValue('nom'),

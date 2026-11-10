@@ -3978,7 +3978,7 @@ function closeNav() {
       	localStorage.setItem(value, $('input[name='+value+']').val());
       }      
      });       
-     localStorage.setItem("source", $('input[name=source]').val()+' TYP');
+     localStorage.setItem("source", $('input[name=source]').val());
      let link =  new URLSearchParams(window.location.search).get('ltm_typ');
      if (link != null)
      {
